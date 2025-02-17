@@ -34,14 +34,18 @@ camera_controller = NodePath("../CameraMount/Camera3D")
 
 [node name="CameraMount" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+top_level = true
 collision_mask = 2
-spring_length = 5.0
+spring_length = 10.0
 margin = 0.1
 
-[node name="Camera3D" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 0.876441, 0.481509, 0, -0.481509, 0.876441, 0.00435829, 10.2924, 14.606)
+[node name="Camera3D" type="Camera3D" parent="CameraMount" node_paths=PackedStringArray("camera_mount")]
+transform = Transform3D(1, 0, 0, 0, 0.876441, 0.481509, 0, -0.481509, 0.876441, 0.00435829, 12.7924, 14.606)
+top_level = true
 fov = 66.8472
 script = ExtResource("3_qhqgy")
+camera_mount = NodePath("..")
+follow_speed = 1.0
 
 [node name="StandInPlayerModel" type="MeshInstance3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02337, 0)

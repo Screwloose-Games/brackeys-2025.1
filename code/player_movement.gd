@@ -2,6 +2,7 @@ extends Node3D
 
 @export var root: CharacterBody3D
 @export var speed: float
+@export var sprint_speed: float
 @export var jump_power: float
 @export var mouse_sensitivity: float
 @export var fall_speed: float
@@ -9,6 +10,7 @@ extends Node3D
 @export var rotation_speed: float
 @export var player_model: MeshInstance3D
 var target_velocity: Vector3 = Vector3.ZERO
+var sprinting: bool
 
 var direction: Vector3 = Vector3.ZERO
 
@@ -27,6 +29,11 @@ func _physics_process(delta: float):
             direction.x += 1
         if Input.is_action_pressed("Move_Left"):
             direction.x -= 1
+            
+        if Input.is_action_pressed("Sprint"):
+            sprinting = true
+        else:
+            sprinting = false
         
         if root.is_on_floor() and Input.is_action_just_pressed("Jump"):
             target_velocity.y = jump_power
@@ -36,8 +43,8 @@ func _physics_process(delta: float):
     if direction != Vector3.ZERO:
         direction = direction.normalized()
         
-    target_velocity.x = direction.x * speed
-    target_velocity.z = direction.z * speed
+    target_velocity.x = direction.x * get_speed()
+    target_velocity.z = direction.z * get_speed()
 
     if not root.is_on_floor():
         target_velocity.y = target_velocity.y - (fall_speed * delta)
@@ -53,3 +60,9 @@ func _unhandled_input(event: InputEvent):
         camera_mount.rotation.x -= event.relative.y * mouse_sensitivity
         camera_mount.rotation_degrees.x = clamp(camera_mount.rotation_degrees.x, -90.0, 30.0)
         camera_mount.rotation.y -= event.relative.x * mouse_sensitivity
+
+func get_speed() -> float:
+    if sprinting:
+        return sprint_speed
+    else:
+        return speed

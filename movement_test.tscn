@@ -79,8 +79,8 @@ interact_button_sprite = NodePath("E-Key")
 
 [node name="E-Key" type="Sprite2D" parent="Game Ui"]
 visible = false
-position = Vector2(2383, 942)
-scale = Vector2(5, 5)
+position = Vector2(1067, 563)
+scale = Vector2(3, 3)
 texture = ExtResource("3_snpff")
 
 [connection signal="body_entered" from="NPC/InteractionTrigger" to="NPC/InteractionDetection" method="on_body_entered"]

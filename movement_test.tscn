@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=6 format=3 uid="uid://dt87dmd0l0vdc"]
 
-[ext_resource type="Script" uid="uid://bl50xgjufg12h" path="res://code/player_movement.gd" id="1_58akw"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yess8"]
+[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://prefabs/player.tscn" id="1_58akw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58akw"]
 size = Vector3(20, 1, 20)
@@ -10,35 +8,14 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_58akw"]
 size = Vector3(20, 1, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_snpff"]
+
 [node name="movement-test" type="Node3D"]
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_58akw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00435829, 0.00826216, -0.00134087)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04272, 0)
-shape = SubResource("CapsuleShape3D_yess8")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
-[node name="PlayerMovement" type="Node3D" parent="Player" node_paths=PackedStringArray("root", "camera_mount")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00871849, 0.0165248, -0.00268197)
-script = ExtResource("1_58akw")
-root = NodePath("..")
-speed = 15.0
-jump_power = 20.0
-mouse_sensitivity = 0.003
-fall_speed = 75.0
-camera_mount = NodePath("../CameraMount")
-
-[node name="CameraMount" type="SpringArm3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-collision_mask = 2
-spring_length = 5.0
-margin = 0.1
-
-[node name="Camera3D" type="Camera3D" parent="Player/CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 0.876441, 0.481509, 0, -0.481509, 0.876441, 0.00435829, 10.2924, 14.606)
-fov = 66.8472
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -49,3 +26,15 @@ shape = SubResource("BoxShape3D_58akw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -5, 0, -1)
 mesh = SubResource("BoxMesh_58akw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1.888, 0, 0, 0, 0.592, 0, 0, 0, 3, -8.59597, 0.573459, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_e51mn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_snpff")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.285153, 0.958482, 0, -0.651183, 0.19373, 0.733777, 0.703312, -0.209239, 0.67939, -7.53261, 14.0544, 0)

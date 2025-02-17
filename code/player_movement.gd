@@ -6,6 +6,8 @@ extends Node3D
 @export var mouse_sensitivity: float
 @export var fall_speed: float
 @export var camera_mount: SpringArm3D
+@export var rotation_speed: float
+@export var player_model: MeshInstance3D
 var target_velocity: Vector3 = Vector3.ZERO
 
 var direction: Vector3 = Vector3.ZERO
@@ -42,6 +44,9 @@ func _physics_process(delta: float):
 
     root.velocity = target_velocity
     root.move_and_slide()
+
+    if root.velocity.length() > 1.0:
+        player_model.rotation.y = lerp_angle(player_model.rotation.y, camera_mount.rotation.y, rotation_speed * delta)
 
 func _unhandled_input(event: InputEvent):
     if event is InputEventMouseMotion:

@@ -14,6 +14,11 @@ config/name="brackeys-2025.1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+NodeFinder="*res://code/NodeFinder.gd"
+InputManager="*res://code/InputManager.gd"
+
 [dotnet]
 
 project/assembly_name="brackeys-2025.1"

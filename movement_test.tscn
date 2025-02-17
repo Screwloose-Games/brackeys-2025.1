@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=12 format=3 uid="uid://dt87dmd0l0vdc"]
 
-[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://prefabs/player.tscn" id="1_58akw"]
+[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://scenes/player.tscn" id="1_58akw"]
+[ext_resource type="Script" uid="uid://c3uuro61u7yty" path="res://code/interaction_detection.gd" id="2_e51mn"]
+[ext_resource type="Script" uid="uid://ui8nenucifea" path="res://code/game_ui.gd" id="3_httow"]
+[ext_resource type="Texture2D" uid="uid://bjowqfm5dtiv1" path="res://E-Key-Sprite.png" id="3_snpff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58akw"]
 size = Vector3(20, 1, 20)
@@ -11,6 +14,13 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_snpff"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58akw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_e51mn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_snpff"]
+size = Vector3(2, 1, 2)
 
 [node name="movement-test" type="Node3D"]
 
@@ -27,14 +37,51 @@ shape = SubResource("BoxShape3D_58akw")
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -5, 0, -1)
 mesh = SubResource("BoxMesh_58akw")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(1.888, 0, 0, 0, 0.592, 0, 0, 0, 3, -8.59597, 0.573459, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
 shape = SubResource("BoxShape3D_e51mn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
 mesh = SubResource("BoxMesh_snpff")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.285153, 0.958482, 0, -0.651183, 0.19373, 0.733777, 0.703312, -0.209239, 0.67939, -7.53261, 14.0544, 0)
+
+[node name="NPC" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7742, 1.06633, 6.08828)
+
+[node name="InteractionDetection" type="Node3D" parent="NPC"]
+script = ExtResource("2_e51mn")
+npc_text = "Hello! I am an npc!"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC"]
+shape = SubResource("CapsuleShape3D_58akw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC"]
+mesh = SubResource("CapsuleMesh_e51mn")
+
+[node name="InteractionTrigger" type="Area3D" parent="NPC"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC/InteractionTrigger"]
+shape = SubResource("BoxShape3D_snpff")
+
+[node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite")]
+layout_mode = 3
+anchor_right = 2.198
+anchor_bottom = 1.796
+offset_right = -0.0961914
+offset_bottom = 0.191895
+mouse_filter = 2
+script = ExtResource("3_httow")
+interact_button_sprite = NodePath("E-Key")
+
+[node name="E-Key" type="Sprite2D" parent="Game Ui"]
+visible = false
+position = Vector2(2383, 942)
+scale = Vector2(5, 5)
+texture = ExtResource("3_snpff")
+
+[connection signal="body_entered" from="NPC/InteractionTrigger" to="NPC/InteractionDetection" method="on_body_entered"]
+[connection signal="body_exited" from="NPC/InteractionTrigger" to="NPC/InteractionDetection" method="on_body_left"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt87dmd0l0vdc"]
+
+[ext_resource type="Script" uid="uid://bl50xgjufg12h" path="res://code/player_movement.gd" id="1_58akw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yess8"]
+
+[node name="movement-test" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.876441, 0.481509, 0, -0.481509, 0.876441, 0, 10.3007, 14.6047)
+fov = 66.8472
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00435829, 0.00826216, -0.00134087)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04272, 0)
+shape = SubResource("CapsuleShape3D_yess8")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="PlayerMovement" type="Node3D" parent="Player" node_paths=PackedStringArray("root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00871849, 0.0165248, -0.00268197)
+script = ExtResource("1_58akw")
+root = NodePath("..")
+speed = 15.0

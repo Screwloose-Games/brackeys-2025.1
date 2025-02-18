@@ -43,6 +43,12 @@ size = Vector3(20, 1, 20)
 [node name="PlayerCharacterBody3D" parent="." instance=ExtResource("1_n2kti")]
 transform = Transform3D(0.999903, 0.0139622, 0, -0.0139622, 0.999903, 0, 0, 0, 1, -0.0194088, 1.01471, -0.0163251)
 script = ExtResource("2_unidx")
+mouse_sensitivity = 0.05
+min_pitch = -89.9
+max_pitch = 50.0
+min_yaw = 0.0
+max_yaw = 360.0
+SPRINT_SPEED = 7.0
 JUMP_VELOCITY = 12.0
 GRAVITY = 50.0
 

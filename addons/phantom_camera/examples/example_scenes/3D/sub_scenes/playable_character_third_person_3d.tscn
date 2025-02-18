@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://mskcwn1a1v6d"]
 
-[ext_resource type="Script" uid="uid://cp5k716fifpn7" path="res://addons/phantom_camera/examples/scripts/3D/player_controller_third_person.gd" id="1_0dnfe"]
+[ext_resource type="Script" uid="uid://dgufjfu2lab3w" path="res://addons/phantom_camera/examples/scripts/3D/player_controller_4.4.gd" id="1_ctvvl"]
 [ext_resource type="PackedScene" uid="uid://dt25utof4dlt" path="res://common/art/meshes/skeletalmesh_player/skeletalmesh_player.tscn" id="2_6a8wd"]
 [ext_resource type="Script" uid="uid://dwcvdo5bjrksn" path="res://code/player_interact.gd" id="3_ctvvl"]
 
@@ -8,7 +8,11 @@
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-script = ExtResource("1_0dnfe")
+script = ExtResource("1_ctvvl")
+SPEED = 2.0
+SPRINT_SPEED = 7.0
+JUMP_VELOCITY = 20.0
+GRAVITY = 20.0
 metadata/_edit_group_ = true
 
 [node name="PlayerArea3D" type="Area3D" parent="." groups=["player"]]

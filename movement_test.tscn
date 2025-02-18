@@ -1,9 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=16 format=3 uid="uid://dt87dmd0l0vdc"]
 
-[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://scenes/player.tscn" id="1_58akw"]
+[ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://addons/phantom_camera/examples/example_scenes/3D/sub_scenes/playable_character_third_person_3d.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
+[ext_resource type="Script" uid="uid://3r2syidagjkl" path="res://addons/phantom_camera/examples/scripts/3D/player_controller_third_person_4.4.gd" id="2_unidx"]
+[ext_resource type="Script" uid="uid://crt48wecltrda" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_dsagd"]
 [ext_resource type="Script" uid="uid://ui8nenucifea" path="res://code/game_ui.gd" id="3_httow"]
 [ext_resource type="Texture2D" uid="uid://bjowqfm5dtiv1" path="res://E-Key-Sprite.png" id="3_snpff"]
+[ext_resource type="Script" uid="uid://bbixea7raf8yd" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_0jnl2"]
+[ext_resource type="Script" uid="uid://d0n5rs8usomab" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_xbnuk"]
+[ext_resource type="Script" uid="uid://dj176rc88xie1" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_0jnl2"]
+
+[sub_resource type="Resource" id="Resource_ehb08"]
+script = ExtResource("4_0jnl2")
+duration = 0.3
+transition = 2
+ease = 1
+
+[sub_resource type="Resource" id="Resource_epw4j"]
+script = ExtResource("5_xbnuk")
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58akw"]
 size = Vector3(20, 1, 20)
@@ -17,8 +40,35 @@ size = Vector3(20, 1, 20)
 
 [node name="movement-test" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_58akw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00435829, 0.00826216, -0.00134087)
+[node name="PlayerCharacterBody3D" parent="." instance=ExtResource("1_n2kti")]
+transform = Transform3D(0.999903, 0.0139622, 0, -0.0139622, 0.999903, 0, 0, 0, 1, -0.0194088, 1.01471, -0.0163251)
+script = ExtResource("2_unidx")
+JUMP_VELOCITY = 12.0
+GRAVITY = 50.0
+
+[node name="PlayerPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499997, 0, -0.499999, 0.866021, -0.0194088, 2.7647, 3.01475)
+script = ExtResource("3_dsagd")
+priority = 10
+follow_mode = 6
+follow_target = NodePath("../PlayerCharacterBody3D")
+tween_resource = SubResource("Resource_ehb08")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_epw4j")
+follow_damping = true
+follow_distance = 3.5
+spring_length = 3.5
+
+[node name="MainCamera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.0194088, 2.7647, 3.01475)
+
+[node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_0jnl2")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 

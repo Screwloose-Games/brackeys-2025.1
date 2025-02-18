@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgqfs3e6gbujc"]
+[gd_scene load_steps=7 format=3 uid="uid://dgqfs3e6gbujc"]
 
 [ext_resource type="Script" uid="uid://bl50xgjufg12h" path="res://code/player_movement.gd" id="1_72ieh"]
 [ext_resource type="Script" uid="uid://dwcvdo5bjrksn" path="res://code/player_interact.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://wtenpuoas06t" path="res://code/camera_controller.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dt25utof4dlt" path="res://common/art/meshes/skeletalmesh_player/skeletalmesh_player.tscn" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yess8"]
 
@@ -51,4 +52,9 @@ follow_speed = 1.0
 
 [node name="StandInPlayerModel" type="MeshInstance3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02337, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_58akw")
+
+[node name="skeletalmesh_player" parent="." instance=ExtResource("4_dqkch")]
+
+[editable path="skeletalmesh_player"]

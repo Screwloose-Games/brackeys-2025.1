@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var player_controller: Node3D
+
 signal show_interact_sprite(show: bool)
 signal show_dialogue_panel(text: String)
 signal hide_dialogue_panel()
@@ -22,4 +24,5 @@ func left_npc_trigger():
 
 func _input(event: InputEvent):
     if event.is_action_pressed("Interact") and can_interact_with_npc:
+        player_controller.player_has_interacted()
         show_dialogue_panel.emit(npc_text)

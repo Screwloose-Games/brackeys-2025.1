@@ -20,17 +20,17 @@ size = Vector3(20, 1, 20)
 [node name="movement-test" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_n2kti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03341, -1.55801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10871, -1.55801)
 
 [node name="PlayerPhantomCamera3D" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_unidx")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499998, 0, -0.499999, 0.866021, -1.4013e-45, 2.7834, 1.47306)
+transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499998, 0, -0.499999, 0.866021, -1.4013e-45, 2.8587, 1.47306)
 follow_target = NodePath("../Player")
 
 [node name="MainCamera3D" parent="." instance=ExtResource("4_u62bo")]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1.4013e-45, 2.7834, 1.47306)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1.4013e-45, 2.8587, 1.47306)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 

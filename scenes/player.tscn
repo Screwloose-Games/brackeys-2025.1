@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgqfs3e6gbujc"]
+[gd_scene load_steps=6 format=3 uid="uid://dgqfs3e6gbujc"]
 
 [ext_resource type="Script" uid="uid://bl50xgjufg12h" path="res://code/player_movement.gd" id="1_72ieh"]
 [ext_resource type="Script" uid="uid://dwcvdo5bjrksn" path="res://code/player_interact.gd" id="2_g2els"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dt25utof4dlt" path="res://common/art/meshes/skeletalmesh_player/skeletalmesh_player.tscn" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yess8"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_58akw"]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 
@@ -35,11 +33,15 @@ player_model = NodePath("../StandInPlayerModel")
 script = ExtResource("2_g2els")
 camera_controller = NodePath("../CameraMount/Camera3D")
 
+[node name="CameraPivot" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28728, 0)
+
 [node name="CameraMount" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 top_level = true
 collision_mask = 2
-spring_length = 10.0
+spring_length = 3.0
 margin = 0.1
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount" node_paths=PackedStringArray("camera_mount")]
@@ -50,11 +52,10 @@ script = ExtResource("3_qhqgy")
 camera_mount = NodePath("..")
 follow_speed = 1.0
 
-[node name="StandInPlayerModel" type="MeshInstance3D" parent="." groups=["player"]]
+[node name="StandInPlayerModel" type="Node3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02337, 0)
-visible = false
-mesh = SubResource("CapsuleMesh_58akw")
 
-[node name="skeletalmesh_player" parent="." instance=ExtResource("4_dqkch")]
+[node name="skeletalmesh_player" parent="StandInPlayerModel" instance=ExtResource("4_dqkch")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -1.02337, 0)
 
-[editable path="skeletalmesh_player"]
+[editable path="StandInPlayerModel/skeletalmesh_player"]

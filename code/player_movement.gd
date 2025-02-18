@@ -8,6 +8,8 @@ extends Node3D
 @export var fall_speed: float
 @export var camera_mount: SpringArm3D
 @export var rotation_speed: float
+@export var acceleration: float
+@export var deceleration: float
 @export var player_model: MeshInstance3D
 var target_velocity: Vector3 = Vector3.ZERO
 var sprinting: bool
@@ -43,8 +45,14 @@ func _physics_process(delta: float):
     if direction != Vector3.ZERO:
         direction = direction.normalized()
         
-    target_velocity.x = direction.x * get_speed()
-    target_velocity.z = direction.z * get_speed()
+    target_velocity.x = move_toward(target_velocity.x, direction.x * get_speed(), acceleration)
+    target_velocity.z = move_toward(target_velocity.z, direction.z * get_speed(), acceleration)
+    
+    if target_velocity.x == 0:
+        target_velocity.x = move_toward(target_velocity.x, direction.x * get_speed(), deceleration)
+        
+    if target_velocity.z == 0:
+        target_velocity.z = move_toward(target_velocity.z, direction.z * get_speed(), deceleration)
 
     if not root.is_on_floor():
         target_velocity.y = target_velocity.y - (fall_speed * delta)

@@ -26,6 +26,8 @@ mouse_sensitivity = 0.003
 fall_speed = 75.0
 camera_mount = NodePath("../CameraMount")
 rotation_speed = 5.0
+acceleration = 10.0
+deceleration = 3.0
 player_model = NodePath("../StandInPlayerModel")
 
 [node name="PlayerInteract" type="Node3D" parent="." node_paths=PackedStringArray("camera_controller")]

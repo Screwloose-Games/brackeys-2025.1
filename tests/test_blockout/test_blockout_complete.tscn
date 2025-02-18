@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckc3gm47p3ph3"]
+
+[ext_resource type="PackedScene" uid="uid://dco2xwq83fo1a" path="res://blockout/blockout_master.tscn" id="1_fse4y"]
+[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://scenes/player.tscn" id="2_fse4y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fse4y"]
+
+[sub_resource type="Sky" id="Sky_g00js"]
+sky_material = SubResource("ProceduralSkyMaterial_fse4y")
+
+[sub_resource type="Environment" id="Environment_fse4y"]
+sky = SubResource("Sky_g00js")
+ambient_light_source = 3
+
+[node name="TestBlockoutComplete" type="Node3D"]
+
+[node name="blockout_master" parent="." instance=ExtResource("1_fse4y")]
+
+[node name="Player" parent="." instance=ExtResource("2_fse4y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.463094, 0.262272, 151.022)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fse4y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.4419, 167.261)

@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 InputManager="*res://code/input_manager.gd"
 AudioManager="*res://globals/audio_manager/audio_manager.tscn"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
 
 [display]
 
@@ -27,6 +29,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="brackeys-2025.1"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
@@ -82,3 +88,5 @@ Sprint={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

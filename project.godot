@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InputManager="*res://code/input_manager.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
@@ -26,6 +27,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="brackeys-2025.1"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 

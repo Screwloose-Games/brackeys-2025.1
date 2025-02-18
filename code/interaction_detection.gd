@@ -2,7 +2,6 @@ extends Node3D
 
 var npc_text: String
 
-
 var player_interact: Node3D
 
 func _ready():

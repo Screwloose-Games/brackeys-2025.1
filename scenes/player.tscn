@@ -1,61 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgqfs3e6gbujc"]
+[gd_scene load_steps=5 format=3 uid="uid://mskcwn1a1v6d"]
 
-[ext_resource type="Script" uid="uid://bl50xgjufg12h" path="res://code/player_movement.gd" id="1_72ieh"]
-[ext_resource type="Script" uid="uid://dwcvdo5bjrksn" path="res://code/player_interact.gd" id="2_g2els"]
-[ext_resource type="Script" uid="uid://wtenpuoas06t" path="res://code/camera_controller.gd" id="3_qhqgy"]
-[ext_resource type="PackedScene" uid="uid://dt25utof4dlt" path="res://common/art/meshes/skeletalmesh_player/skeletalmesh_player.tscn" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://3r2syidagjkl" path="res://code/player_controller_third_person_4.4.gd" id="1_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dt25utof4dlt" path="res://common/art/meshes/skeletalmesh_player/skeletalmesh_player.tscn" id="2_6a8wd"]
+[ext_resource type="Script" uid="uid://dwcvdo5bjrksn" path="res://code/player_interact.gd" id="3_ctvvl"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yess8"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s61dn"]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_qhqgy")
+SPEED = 1.5
+SPRINT_SPEED = 7.0
+JUMP_VELOCITY = 12.0
+GRAVITY = 50.0
+ACCELERATION = 1.0
+DECELERATION = 1.0
+metadata/_edit_group_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04272, 0)
-shape = SubResource("CapsuleShape3D_yess8")
-debug_color = Color(0, 0.6, 0.701961, 1)
+[node name="PlayerArea3D" type="Area3D" parent="." groups=["player"]]
 
-[node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("root", "camera_mount", "player_model")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00871849, 0.0165248, -0.00268197)
-script = ExtResource("1_72ieh")
-root = NodePath("..")
-speed = 1.5
-sprint_speed = 7.0
-jump_power = 20.0
-mouse_sensitivity = 0.003
-fall_speed = 75.0
-camera_mount = NodePath("../CameraMount")
-rotation_speed = 5.0
-acceleration = 10.0
-deceleration = 3.0
-player_model = NodePath("../StandInPlayerModel")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea3D"]
+shape = SubResource("CapsuleShape3D_s61dn")
 
-[node name="PlayerInteract" type="Node3D" parent="." node_paths=PackedStringArray("camera_controller")]
-script = ExtResource("2_g2els")
-camera_controller = NodePath("../CameraMount/Camera3D")
+[node name="PlayerCollisionShape3D" type="CollisionShape3D" parent="." groups=["player"]]
+shape = SubResource("CapsuleShape3D_s61dn")
 
-[node name="CameraPivot" type="Marker3D" parent="."]
+[node name="PlayerVisual" type="Node3D" parent="." groups=["player"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28728, 0)
 
-[node name="CameraMount" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-top_level = true
-collision_mask = 2
-spring_length = 3.0
-margin = 0.1
+[node name="skeletalmesh_player" parent="PlayerVisual" instance=ExtResource("2_6a8wd")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 2.22045e-16, -8.74228e-08, 0, -1, 0.0136029, -0.974175, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraMount" node_paths=PackedStringArray("camera_mount")]
-transform = Transform3D(1, 0, 0, 0, 0.876441, 0.481509, 0, -0.481509, 0.876441, 0.00435829, 12.7924, 14.606)
-top_level = true
-fov = 66.8472
-script = ExtResource("3_qhqgy")
-camera_mount = NodePath("..")
-follow_speed = 1.0
+[node name="PlayerInteract" type="Node3D" parent="." groups=["player"]]
+script = ExtResource("3_ctvvl")
 
-[node name="StandInPlayerModel" type="Node3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02337, 0)
-
-[node name="skeletalmesh_player" parent="StandInPlayerModel" instance=ExtResource("4_dqkch")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -1.02337, 0)
-
-[editable path="StandInPlayerModel/skeletalmesh_player"]
+[editable path="PlayerVisual/skeletalmesh_player"]

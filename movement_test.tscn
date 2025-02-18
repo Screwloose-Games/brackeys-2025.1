@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=11 format=3 uid="uid://dt87dmd0l0vdc"]
 
-[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://scenes/player.tscn" id="1_58akw"]
+[ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
 [ext_resource type="Script" uid="uid://ui8nenucifea" path="res://code/game_ui.gd" id="3_httow"]
 [ext_resource type="Texture2D" uid="uid://bjowqfm5dtiv1" path="res://E-Key-Sprite.png" id="3_snpff"]
+[ext_resource type="PackedScene" uid="uid://cpjxr4snfrv2p" path="res://scenes/player_phantom_camera_3d.tscn" id="3_unidx"]
+[ext_resource type="PackedScene" uid="uid://de65cfgowvmsf" path="res://scenes/main_camera_3d.tscn" id="4_u62bo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58akw"]
 size = Vector3(20, 1, 20)
@@ -17,8 +19,24 @@ size = Vector3(20, 1, 20)
 
 [node name="movement-test" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_58akw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00435829, 0.00826216, -0.00134087)
+[node name="Player" parent="." instance=ExtResource("1_n2kti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10871, -1.55801)
+SPEED = 1.5
+SPRINT_SPEED = 7.0
+JUMP_VELOCITY = 12.0
+GRAVITY = 50.0
+ACCELERATION = 1.0
+DECELERATION = 1.0
+
+[node name="PlayerPhantomCamera3D" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_unidx")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499998, 0, -0.499999, 0.866021, -1.4013e-45, 2.8587, 1.47307)
+follow_target = NodePath("../Player")
+
+[node name="MainCamera3D" parent="." instance=ExtResource("4_u62bo")]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1.4013e-45, 2.8587, 1.47307)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 

@@ -4,6 +4,8 @@ extends CharacterBody3D
 @export var SPRINT_SPEED: float
 @export var JUMP_VELOCITY: float
 @export var GRAVITY: float
+@export var ACCELERATION: float
+@export var DECELERATION: float
 
 @onready var _camera: Camera3D
 
@@ -35,11 +37,11 @@ func _physics_process(delta: float) -> void:
         move_dir.z = direction.z
 
         move_dir = move_dir.rotated(Vector3.UP, _camera.rotation.y).normalized()
-        velocity.x = move_dir.x * get_speed()
-        velocity.z = move_dir.z * get_speed()
+        velocity.x = move_toward(velocity.x, move_dir.x * get_speed(), ACCELERATION)
+        velocity.z = move_toward(velocity.z, move_dir.z * get_speed(), ACCELERATION)
     else:
-        velocity.x = move_toward(velocity.x, 0, get_speed())
-        velocity.z = move_toward(velocity.z, 0, get_speed())
+        velocity.x = move_toward(velocity.x, 0, DECELERATION)
+        velocity.z = move_toward(velocity.z, 0, DECELERATION)
     
     if is_on_floor() and Input.is_action_just_pressed("Jump"):
         velocity.y = JUMP_VELOCITY

@@ -51,6 +51,8 @@ max_yaw = 360.0
 SPRINT_SPEED = 7.0
 JUMP_VELOCITY = 12.0
 GRAVITY = 50.0
+ACCELERATION = 1.0
+DECELERATION = 1.0
 
 [node name="PlayerPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true

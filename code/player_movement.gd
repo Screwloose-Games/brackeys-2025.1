@@ -10,7 +10,7 @@ extends Node3D
 @export var rotation_speed: float
 @export var acceleration: float
 @export var deceleration: float
-@export var player_model: MeshInstance3D
+@export var player_model: Node3D
 var target_velocity: Vector3 = Vector3.ZERO
 var sprinting: bool
 

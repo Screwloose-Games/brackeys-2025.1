@@ -8,7 +8,7 @@ var interact_button_sprite: Sprite2D
 var can_interact_with_npc: bool
 var npc_text: String
 
-func entered_npc_trigger(npc_position: Vector3, text: String):
+func entered_npc_trigger(_npc_position: Vector3, text: String):
     can_interact_with_npc = true
     npc_text = text
     #camera should target npc here

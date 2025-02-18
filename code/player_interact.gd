@@ -1,7 +1,5 @@
 extends Node3D
 
-@export var camera_controller: Camera3D
-
 signal show_interact_sprite(show: bool)
 signal show_dialogue_panel(text: String)
 signal hide_dialogue_panel()
@@ -13,12 +11,12 @@ var npc_text: String
 func entered_npc_trigger(npc_position: Vector3, text: String):
     can_interact_with_npc = true
     npc_text = text
-    camera_controller.set_new_target(npc_position)
+    #camera should target npc here
     show_interact_sprite.emit(true)
 
 func left_npc_trigger():
     can_interact_with_npc = false
-    camera_controller.follow_player()
+    #camera should go back to following player here
     show_interact_sprite.emit(false)
     hide_dialogue_panel.emit()
 

@@ -29,9 +29,8 @@ acceleration = 10.0
 deceleration = 3.0
 player_model = NodePath("../StandInPlayerModel")
 
-[node name="PlayerInteract" type="Node3D" parent="." node_paths=PackedStringArray("camera_controller")]
+[node name="PlayerInteract" type="Node3D" parent="."]
 script = ExtResource("2_g2els")
-camera_controller = NodePath("../CameraMount/Camera3D")
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 unique_name_in_owner = true

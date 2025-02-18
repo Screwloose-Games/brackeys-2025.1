@@ -46,18 +46,39 @@ transform = Transform3D(0.285153, 0.958482, 0, -0.651183, 0.19373, 0.733777, 0.7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7742, 1.06633, 6.08828)
 npc_text = "Hi! I am a NPC in the test level!"
 
-[node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite")]
+[node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "dialogue_panel", "dialogue_label")]
 layout_mode = 3
-anchor_right = 2.198
-anchor_bottom = 1.796
-offset_right = -0.0961914
-offset_bottom = 0.191895
+anchor_right = 1.0
+anchor_bottom = 1.011
+offset_right = 3.0
+offset_bottom = -0.128052
 mouse_filter = 2
 script = ExtResource("3_httow")
 interact_button_sprite = NodePath("E-Key")
+dialogue_panel = NodePath("Dialogue Panel")
+dialogue_label = NodePath("Dialogue Panel/Dialogue Label")
 
 [node name="E-Key" type="Sprite2D" parent="Game Ui"]
 visible = false
 position = Vector2(1067, 563)
 scale = Vector2(3, 3)
 texture = ExtResource("3_snpff")
+
+[node name="Dialogue Panel" type="Panel" parent="Game Ui"]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 513.0
+offset_right = 1012.0
+offset_bottom = 635.0
+
+[node name="Dialogue Label" type="Label" parent="Game Ui/Dialogue Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.999
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -4.00708
+text = "Some dialogue text goes here. It could be pretty long actually. Blah. Some dialogue text goes here. It could be pretty long actually. Blah. Some dialogue text goes here. It could be pretty long actually. Blah.Some dialogue text goes here. It could be pretty long actually. Blah ."
+vertical_alignment = 1
+autowrap_mode = 2

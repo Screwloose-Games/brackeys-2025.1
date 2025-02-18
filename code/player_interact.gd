@@ -3,6 +3,8 @@ extends Node3D
 @export var camera_controller: Camera3D
 
 signal show_interact_sprite(show: bool)
+signal show_dialogue_panel(text: String)
+signal hide_dialogue_panel()
 
 var interact_button_sprite: Sprite2D
 var can_interact_with_npc: bool
@@ -18,7 +20,8 @@ func left_npc_trigger():
     can_interact_with_npc = false
     camera_controller.follow_player()
     show_interact_sprite.emit(false)
+    hide_dialogue_panel.emit()
 
 func _input(event: InputEvent):
     if event.is_action_pressed("Interact") and can_interact_with_npc:
-        print(npc_text)
+        show_dialogue_panel.emit(npc_text)

@@ -4,6 +4,7 @@ extends Resource
 enum Type {
     WAIT,
     MOVE,
+    RETURN_TO_STARTING_POSITION,
 }
 
 @export var action_type: Type = Type.WAIT

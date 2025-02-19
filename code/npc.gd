@@ -4,24 +4,36 @@ extends CharacterBody3D
 @export var npc_text: String 
 var interaction_detection: Node3D
 
+@export var stopped_follow_wait_time: float
 @export var loop_actions: bool
 @export var actions: Array[NPC_Action] = []
 
 @onready var nav_agent: NavigationAgent3D = %NavAgent
+
+var player: CharacterBody3D
+
 var movement_direction: Vector3
 var starting_position: Vector3
 
 var being_interacted_with: bool
+var following_player: bool
+var waiting_after_following: bool
 
 var index: int = 0
 
 func _ready():
+    player = get_tree().get_first_node_in_group("player")
     interaction_detection = get_node("InteractionDetection")
     interaction_detection.set_text(npc_text)
     starting_position = global_position
     commit_action()
     
 func _physics_process(_delta):
+    
+    if following_player:
+        determine_navigation(player.global_position)
+        return
+    
     if actions[index].action_type == NPC_Action.Type.MOVE:
         determine_navigation(actions[index].destination)
         if nav_agent.is_navigation_finished():
@@ -57,12 +69,21 @@ func player_interacts_with_npc():
 
 func player_stops_interacting():
     being_interacted_with = false
+    
+func start_following_player():
+    following_player = true
+    
+func stop_following_player():
+    following_player = false
+    waiting_after_following = true
+    await get_tree().create_timer(stopped_follow_wait_time).timeout
+    waiting_after_following = false
 
 func _on_nav_agent_velocity_computed(safe_velocity: Vector3):
     velocity = safe_velocity
     
 func determine_navigation(destination: Vector3):
-    if being_interacted_with:
+    if being_interacted_with or waiting_after_following:
         return
     
     nav_agent.target_position = destination

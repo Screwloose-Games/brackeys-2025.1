@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=17 format=3 uid="uid://dt87dmd0l0vdc"]
 
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cpjxr4snfrv2p" path="res://scenes/player_phantom_camera_3d.tscn" id="3_unidx"]
 [ext_resource type="PackedScene" uid="uid://de65cfgowvmsf" path="res://scenes/main_camera_3d.tscn" id="4_u62bo"]
 [ext_resource type="Script" uid="uid://mi3x1qolx66q" path="res://code/npc_action.gd" id="5_unidx"]
+[ext_resource type="Texture2D" uid="uid://b1t65557jgm3q" path="res://F-Key-Sprite.png" id="8_u62bo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
 
@@ -77,7 +78,7 @@ npc_text = "Hi! I am a NPC in the test level!"
 loop_actions = true
 actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_u62bo"), SubResource("Resource_dsagd")])
 
-[node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "dialogue_panel", "dialogue_label")]
+[node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "follow_button_sprite", "dialogue_panel", "dialogue_label")]
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 1.011
@@ -86,6 +87,7 @@ offset_bottom = -0.128052
 mouse_filter = 2
 script = ExtResource("3_httow")
 interact_button_sprite = NodePath("E-Key")
+follow_button_sprite = NodePath("F-Key")
 dialogue_panel = NodePath("Dialogue Panel")
 dialogue_label = NodePath("Dialogue Panel/Dialogue Label")
 
@@ -94,6 +96,12 @@ visible = false
 position = Vector2(1067, 563)
 scale = Vector2(3, 3)
 texture = ExtResource("3_snpff")
+
+[node name="F-Key" type="Sprite2D" parent="Game Ui"]
+visible = false
+position = Vector2(1067, 617)
+scale = Vector2(3, 3)
+texture = ExtResource("8_u62bo")
 
 [node name="Dialogue Panel" type="Panel" parent="Game Ui"]
 visible = false

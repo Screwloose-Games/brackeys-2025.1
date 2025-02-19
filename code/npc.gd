@@ -11,6 +11,8 @@ var interaction_detection: Node3D
 var movement_direction: Vector3
 var starting_position: Vector3
 
+var being_interacted_with: bool
+
 var index: int = 0
 
 func _ready():
@@ -49,11 +51,20 @@ func increment_index():
 func wait():
     await get_tree().create_timer(actions[index].wait_time).timeout
     increment_index()
+    
+func player_interacts_with_npc():
+    being_interacted_with = true
+
+func player_stops_interacting():
+    being_interacted_with = false
 
 func _on_nav_agent_velocity_computed(safe_velocity: Vector3):
     velocity = safe_velocity
     
 func determine_navigation(destination: Vector3):
+    if being_interacted_with:
+        return
+    
     nav_agent.target_position = destination
     var next_path_position = nav_agent.get_next_path_position()
     velocity = global_position.direction_to(next_path_position) * movement_speed

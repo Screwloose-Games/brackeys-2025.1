@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=16 format=3 uid="uid://dt87dmd0l0vdc"]
 
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
@@ -20,6 +20,13 @@ destination = Vector3(1.272, 1.268, -6.7)
 metadata/_custom_type_script = ExtResource("5_unidx")
 
 [sub_resource type="Resource" id="Resource_u62bo"]
+script = ExtResource("5_unidx")
+action_type = 0
+wait_time = 3.0
+destination = Vector3(0, 0, 0)
+metadata/_custom_type_script = ExtResource("5_unidx")
+
+[sub_resource type="Resource" id="Resource_dsagd"]
 script = ExtResource("5_unidx")
 action_type = 2
 wait_time = 0.0
@@ -68,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6325, 1.26812, 4.82545)
 movement_speed = 5.0
 npc_text = "Hi! I am a NPC in the test level!"
 loop_actions = true
-actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_u62bo")])
+actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_u62bo"), SubResource("Resource_dsagd")])
 
 [node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "dialogue_panel", "dialogue_label")]
 layout_mode = 3

@@ -11,6 +11,13 @@ bus = &"SFX"
 [node name="Music" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
+[node name="IntensifyTimer" type="Timer" parent="Music"]
+wait_time = 0.3
+one_shot = true
+
+[node name="MusicBase" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
 [node name="EnvironmentSounds" type="AudioStreamPlayer" parent="."]
 bus = &"Environment"
 

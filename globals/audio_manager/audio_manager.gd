@@ -18,6 +18,10 @@ enum AudioBusType {
 @onready var music: AudioStreamPlayer = $Music
 @onready var environment_sounds: AudioStreamPlayer = $EnvironmentSounds
 @onready var ui_sounds: AudioStreamPlayer = $UISounds
+@onready var music_base: AudioStreamPlayer = $MusicBase
+@onready var intensify_timer: Timer = $Music/IntensifyTimer
+
+
 
 
 var audio_players: Dictionary = {}
@@ -44,6 +48,7 @@ var sfx_dictionary: Dictionary = {
 var music_dictionary: Dictionary = {
 	"light": "PATH TO TRACK",
 	"sneak": preload("res://common/audio/music/TEMPSneakTime.mp3"),
+	"sneak_base": preload("res://common/audio/music/SneakTimeBase.mp3"),
 	"action": preload("res://common/audio/music/TEMP-Rush.mp3"),
 }
 
@@ -64,6 +69,10 @@ func connect_audio_signals(node: Node):
 		if node.has_signal("music_change"):
 			if !node.is_connected("music_change", _play_music):
 				node.connect("music_change", _play_music)
+				print(node, " has grabbed the aux")
+		if node.has_signal("intensify_music"):
+			if !node.is_connected("intensify_music", _intensify_music):
+				node.connect("intensify_music", _intensify_music)
 				print(node, " has grabbed the aux")
 				
 	for child in node.get_children():
@@ -94,9 +103,19 @@ func _play_sound(sfx_request):
 	else:
 		audio_player.play()
 
-func _play_music(music_request):
+func _play_music(music_request : String):
+	var base_track = music_request + "_base"
 	music.stream = music_dictionary[music_request]
+	music_base.stream = music_dictionary[base_track]
+	music.volume_linear = 0
 	music.play()
+	music_base.play()
+
+func _intensify_music():
+	intensify_timer.start()
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(music, "volume_linear", 1.0, intensify_timer.wait_time)
 
 func get_volume(bus: AudioBusType):
 	match(bus):

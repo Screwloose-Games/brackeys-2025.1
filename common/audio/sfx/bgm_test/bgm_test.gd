@@ -5,6 +5,7 @@ signal run
 signal jump
 signal slide
 signal music_change(track)
+signal intensify_music
 
 @onready var music_volume: HSlider = $VBoxContainer/MusicVol
 @onready var sfx_volume: HSlider = $VBoxContainer/SFXVol
@@ -40,3 +41,7 @@ func _on_music_vol_value_changed(value: float) -> void:
 
 func _on_sfx_vol_value_changed(value: float) -> void:
 	AudioManager.set_volume(AudioManager.AudioBusType.SFX, value)
+
+
+func _on_intensify_pressed() -> void:
+	intensify_music.emit()

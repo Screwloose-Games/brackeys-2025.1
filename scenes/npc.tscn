@@ -13,6 +13,7 @@ size = Vector3(2, 1, 2)
 [node name="NPC" type="CharacterBody3D"]
 script = ExtResource("1_abqhh")
 movement_speed = 1.0
+stopped_follow_wait_time = 3.0
 
 [node name="InteractionDetection" type="Node3D" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("1_nh2m4")

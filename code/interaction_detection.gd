@@ -7,13 +7,10 @@ var player_interact: Node3D
 
 func _ready():
     player_interact = get_tree().get_first_node_in_group("player").get_node("PlayerInteract")
-    
-func set_text(text: String):
-    npc_text = text
 
 func on_body_entered(body:Node3D):
     if body.is_in_group("player"):
-        player_interact.entered_npc_trigger(root, npc_text)
+        player_interact.entered_npc_trigger(root, root.get_text())
 
 func on_body_left(body:Node3D):
     if body.is_in_group("player"):

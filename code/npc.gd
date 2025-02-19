@@ -1,7 +1,11 @@
 extends CharacterBody3D
 
+@export var has_ring: bool
 @export var movement_speed: float
-@export var npc_text: String 
+@export var npc_text: String
+## Text that an NPC will say after an important event with them has happened. 
+## For example, what the ring bearer says after you take the ring from him.
+@export var npc_second_text: String
 var interaction_detection: Node3D
 
 @export var stopped_follow_wait_time: float
@@ -18,13 +22,13 @@ var starting_position: Vector3
 var being_interacted_with: bool
 var following_player: bool
 var waiting_after_following: bool
+var should_use_second_text: bool
 
 var index: int = 0
 
 func _ready():
     player = get_tree().get_first_node_in_group("player")
     interaction_detection = get_node("InteractionDetection")
-    interaction_detection.set_text(npc_text)
     starting_position = global_position
     commit_action()
     
@@ -66,6 +70,10 @@ func wait():
     
 func player_interacts_with_npc():
     being_interacted_with = true
+    if has_ring:
+        should_use_second_text = true
+        has_ring = false
+        WinManager.player_obtained_ring()
 
 func player_stops_interacting():
     being_interacted_with = false
@@ -78,6 +86,12 @@ func stop_following_player():
     waiting_after_following = true
     await get_tree().create_timer(stopped_follow_wait_time).timeout
     waiting_after_following = false
+    
+func get_text() -> String:
+    if should_use_second_text:
+        return npc_second_text
+    else:
+        return npc_text
 
 func _on_nav_agent_velocity_computed(safe_velocity: Vector3):
     velocity = safe_velocity

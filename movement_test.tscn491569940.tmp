@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=11 format=3 uid="uid://dt87dmd0l0vdc"]
 
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
@@ -6,42 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://bjowqfm5dtiv1" path="res://E-Key-Sprite.png" id="3_snpff"]
 [ext_resource type="PackedScene" uid="uid://cpjxr4snfrv2p" path="res://scenes/player_phantom_camera_3d.tscn" id="3_unidx"]
 [ext_resource type="PackedScene" uid="uid://de65cfgowvmsf" path="res://scenes/main_camera_3d.tscn" id="4_u62bo"]
-[ext_resource type="Script" uid="uid://mi3x1qolx66q" path="res://code/npc_action.gd" id="5_unidx"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_snpff"]
-
-[sub_resource type="Resource" id="Resource_unidx"]
-script = ExtResource("5_unidx")
-action_type = 1
-wait_time = 0.0
-destination = Vector3(1.272, 1.268, -6.7)
-metadata/_custom_type_script = ExtResource("5_unidx")
-
-[sub_resource type="Resource" id="Resource_u62bo"]
-script = ExtResource("5_unidx")
-action_type = 0
-wait_time = 3.0
-destination = Vector3(0, 0, 0)
-metadata/_custom_type_script = ExtResource("5_unidx")
-
-[sub_resource type="Resource" id="Resource_dsagd"]
-script = ExtResource("5_unidx")
-action_type = 2
-wait_time = 0.0
-destination = Vector3(0, 0, 0)
-metadata/_custom_type_script = ExtResource("5_unidx")
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_unidx"]
-vertices = PackedVector3Array(-14.5, 0.45, -10.5, -14.5, 0.45, 8.5, 4.5, 0.45, 8.5, 4.5, 0.45, -10.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58akw"]
 size = Vector3(20, 1, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_58akw"]
 size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_snpff"]
 
 [node name="movement-test" type="Node3D"]
 
@@ -58,6 +32,16 @@ unique_name_in_owner = true
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1.4013e-45, 2.7834, 1.47306)
 
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -5, 0, -1)
+shape = SubResource("BoxShape3D_58akw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -5, 0, -1)
+mesh = SubResource("BoxMesh_58akw")
+
 [node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(1.888, 0, 0, 0, 0.592, 0, 0, 0, 3, -8.59597, 0.573459, 0)
 
@@ -71,11 +55,8 @@ mesh = SubResource("BoxMesh_snpff")
 transform = Transform3D(0.285153, 0.958482, 0, -0.651183, 0.19373, 0.733777, 0.703312, -0.209239, 0.67939, -7.53261, 14.0544, 0)
 
 [node name="NPC" parent="." instance=ExtResource("2_httow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6325, 1.26812, 4.82545)
-movement_speed = 5.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7742, 1.06633, 6.08828)
 npc_text = "Hi! I am a NPC in the test level!"
-loop_actions = true
-actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_u62bo"), SubResource("Resource_dsagd")])
 
 [node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "dialogue_panel", "dialogue_label")]
 layout_mode = 3
@@ -113,16 +94,3 @@ offset_right = -4.00708
 text = "Some dialogue text goes here. It could be pretty long actually. Blah. Some dialogue text goes here. It could be pretty long actually. Blah. Some dialogue text goes here. It could be pretty long actually. Blah.Some dialogue text goes here. It could be pretty long actually. Blah ."
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_unidx")
-
-[node name="Ground" type="StaticBody3D" parent="NavigationRegion3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -5, 0, -1)
-shape = SubResource("BoxShape3D_58akw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -5, 0, -1)
-mesh = SubResource("BoxMesh_58akw")

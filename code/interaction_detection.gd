@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var root: CharacterBody3D
 var npc_text: String
 
 var player_interact: Node3D
@@ -12,7 +13,7 @@ func set_text(text: String):
 
 func on_body_entered(body:Node3D):
     if body.is_in_group("player"):
-        player_interact.entered_npc_trigger(global_position, npc_text)
+        player_interact.entered_npc_trigger(root, npc_text)
 
 func on_body_left(body:Node3D):
     if body.is_in_group("player"):

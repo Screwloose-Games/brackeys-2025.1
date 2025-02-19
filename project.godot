@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 InputManager="*res://code/input_manager.gd"
 AudioManager="*res://globals/audio_manager/audio_manager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+WinManager="*res://code/win_manager.gd"
 
 [display]
 

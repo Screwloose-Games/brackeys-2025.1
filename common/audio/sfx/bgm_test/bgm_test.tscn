@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://daf0t4e2uwc6x"]
+
+[ext_resource type="Script" uid="uid://dpjk1ywqvbhaj" path="res://common/audio/sfx/bgm_test/bgm_test.gd" id="1_taaa7"]
+
+[node name="BgmTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_taaa7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Walk" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Walk"
+
+[node name="Run" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Run"
+
+[node name="Jump" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Jump"
+
+[node name="Slide" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Slide"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sneak Music" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sneak Music"
+
+[node name="Action Music" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Action Music"
+
+[node name="MusicVol" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="SFXVol" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Walk" to="." method="_on_walk_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Slide" to="." method="_on_slide_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Sneak Music" to="." method="_on_sneak_music_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Action Music" to="." method="_on_action_music_pressed"]
+[connection signal="value_changed" from="VBoxContainer/MusicVol" to="." method="_on_music_vol_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXVol" to="." method="_on_sfx_vol_value_changed"]

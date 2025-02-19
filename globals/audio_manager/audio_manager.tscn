@@ -5,4 +5,14 @@
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_gqfen")
 
-[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+[node name="PlayerSounds" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="EnvironmentSounds" type="AudioStreamPlayer" parent="."]
+bus = &"Environment"
+
+[node name="UISounds" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

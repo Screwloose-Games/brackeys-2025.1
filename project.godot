@@ -21,7 +21,6 @@ InputManager="*res://code/input_manager.gd"
 AudioManager="*res://globals/audio_manager/audio_manager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
-
 [display]
 
 window/stretch/mode="viewport"

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dcnrlcgtfokbp"
-path="res://.godot/imported/adult_masc_indeed.wav-6dcae23cec64fd00fc8225f4ce053083.sample"
+path="res://.godot/imported/adult_masc_indeed.wav-3f9296023fb619493ee5af6d9d14d2d0.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/masc/adult_masc_indeed.wav"
-dest_files=["res://.godot/imported/adult_masc_indeed.wav-6dcae23cec64fd00fc8225f4ce053083.sample"]
+source_file="res://scenes/npc/technician/sounds/adult_masc_indeed.wav"
+dest_files=["res://.godot/imported/adult_masc_indeed.wav-3f9296023fb619493ee5af6d9d14d2d0.sample"]
 
 [params]
 

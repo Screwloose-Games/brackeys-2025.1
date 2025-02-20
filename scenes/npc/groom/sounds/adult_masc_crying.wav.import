@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://br28w43urkius"
-path="res://.godot/imported/adult_masc_crying.wav-bbae8eeb1d9eb4c402d0be40a4eea4dc.sample"
+path="res://.godot/imported/adult_masc_crying.wav-725bfcb4399d3e556ca64a3921febc21.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/masc/adult_masc_crying.wav"
-dest_files=["res://.godot/imported/adult_masc_crying.wav-bbae8eeb1d9eb4c402d0be40a4eea4dc.sample"]
+source_file="res://scenes/npc/groom/sounds/adult_masc_crying.wav"
+dest_files=["res://.godot/imported/adult_masc_crying.wav-725bfcb4399d3e556ca64a3921febc21.sample"]
 
 [params]
 

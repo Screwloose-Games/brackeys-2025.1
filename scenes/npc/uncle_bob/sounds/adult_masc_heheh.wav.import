@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d2qj7ga61dsqp"
-path="res://.godot/imported/adult_masc_heheh.wav-02329c97c9898efad3ccfa9b8cfdbc63.sample"
+path="res://.godot/imported/adult_masc_heheh.wav-3de981e7321ffc059a59d7b8a7cdf72c.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/masc/adult_masc_heheh.wav"
-dest_files=["res://.godot/imported/adult_masc_heheh.wav-02329c97c9898efad3ccfa9b8cfdbc63.sample"]
+source_file="res://scenes/npc/uncle_bob/sounds/adult_masc_heheh.wav"
+dest_files=["res://.godot/imported/adult_masc_heheh.wav-3de981e7321ffc059a59d7b8a7cdf72c.sample"]
 
 [params]
 

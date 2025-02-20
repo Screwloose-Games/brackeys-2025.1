@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://3loty3j822ky"
-path="res://.godot/imported/adult_masc_interested_oh.wav-63ef7a4d7ca2f5359e5086cf7be282f7.sample"
+path="res://.godot/imported/adult_masc_interested_oh.wav-00bf7210c03d93dbd3aeaba8324d27e6.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/uncle/adult_masc_interested_oh.wav"
-dest_files=["res://.godot/imported/adult_masc_interested_oh.wav-63ef7a4d7ca2f5359e5086cf7be282f7.sample"]
+source_file="res://scenes/npc/uncle_bob/sounds/adult_masc_interested_oh.wav"
+dest_files=["res://.godot/imported/adult_masc_interested_oh.wav-00bf7210c03d93dbd3aeaba8324d27e6.sample"]
 
 [params]
 

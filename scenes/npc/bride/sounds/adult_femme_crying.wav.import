@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bnxgs7gjmex0s"
-path="res://.godot/imported/adult_femme_crying.wav-d8031a5e7929d595dba27d0dfb94d59f.sample"
+path="res://.godot/imported/adult_femme_crying.wav-2cce203542e78c6db713a4f94f21a444.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/femme/adult_femme_crying.wav"
-dest_files=["res://.godot/imported/adult_femme_crying.wav-d8031a5e7929d595dba27d0dfb94d59f.sample"]
+source_file="res://scenes/npc/bride/sounds/adult_femme_crying.wav"
+dest_files=["res://.godot/imported/adult_femme_crying.wav-2cce203542e78c6db713a4f94f21a444.sample"]
 
 [params]
 

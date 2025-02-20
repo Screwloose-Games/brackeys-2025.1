@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c6g87m5b5kl2o"
-path="res://.godot/imported/adult_femme_humming2.wav-b2d18d9f80fd9dde69450220a7f74257.sample"
+path="res://.godot/imported/adult_femme_humming2.wav-b091fac56bbc1e22fa06114fe2f90729.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/femme/adult_femme_humming2.wav"
-dest_files=["res://.godot/imported/adult_femme_humming2.wav-b2d18d9f80fd9dde69450220a7f74257.sample"]
+source_file="res://scenes/npc/guest_femme/sounds/adult_femme_humming2.wav"
+dest_files=["res://.godot/imported/adult_femme_humming2.wav-b091fac56bbc1e22fa06114fe2f90729.sample"]
 
 [params]
 

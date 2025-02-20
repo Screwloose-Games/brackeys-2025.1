@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cuw6x7s88ecvi"
-path="res://.godot/imported/adult_femme_hmm.wav-c129ed2abb7ba4e8712f94707e144cb0.sample"
+path="res://.godot/imported/adult_femme_hmm.wav-11a490dff2e33eb689f9b19c424625ec.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/femme/adult_femme_hmm.wav"
-dest_files=["res://.godot/imported/adult_femme_hmm.wav-c129ed2abb7ba4e8712f94707e144cb0.sample"]
+source_file="res://scenes/npc/woman_in_white/sounds/adult_femme_hmm.wav"
+dest_files=["res://.godot/imported/adult_femme_hmm.wav-11a490dff2e33eb689f9b19c424625ec.sample"]
 
 [params]
 

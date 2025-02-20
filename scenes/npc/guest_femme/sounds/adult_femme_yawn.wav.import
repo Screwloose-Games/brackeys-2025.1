@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bcgdsckbyn1dd"
-path="res://.godot/imported/adult_femme_yawn.wav-422de7c2686a9d6bd1a161b4491378e2.sample"
+path="res://.godot/imported/adult_femme_yawn.wav-26afc4cb0edc6023db6246fe6692cd38.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/femme/adult_femme_yawn.wav"
-dest_files=["res://.godot/imported/adult_femme_yawn.wav-422de7c2686a9d6bd1a161b4491378e2.sample"]
+source_file="res://scenes/npc/guest_femme/sounds/adult_femme_yawn.wav"
+dest_files=["res://.godot/imported/adult_femme_yawn.wav-26afc4cb0edc6023db6246fe6692cd38.sample"]
 
 [params]
 

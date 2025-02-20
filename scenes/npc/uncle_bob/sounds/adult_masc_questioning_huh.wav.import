@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bax7yqna7ry7t"
-path="res://.godot/imported/adult_masc_questioning_huh.wav-7fd0239b357b878a38a184056983e679.sample"
+path="res://.godot/imported/adult_masc_questioning_huh.wav-fb71e2e762e33e606bec3f80ef94f74d.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/uncle/adult_masc_questioning_huh.wav"
-dest_files=["res://.godot/imported/adult_masc_questioning_huh.wav-7fd0239b357b878a38a184056983e679.sample"]
+source_file="res://scenes/npc/uncle_bob/sounds/adult_masc_questioning_huh.wav"
+dest_files=["res://.godot/imported/adult_masc_questioning_huh.wav-fb71e2e762e33e606bec3f80ef94f74d.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ck05dg6qkhm87"
-path="res://.godot/imported/adult_masc_sly_laugh.wav-2727dbba48fb12eec42f0012322bc56e.sample"
+path="res://.godot/imported/adult_masc_sly_laugh.wav-4b97cb4ef44fa04e28dcc18772484d60.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/masc/adult_masc_sly_laugh.wav"
-dest_files=["res://.godot/imported/adult_masc_sly_laugh.wav-2727dbba48fb12eec42f0012322bc56e.sample"]
+source_file="res://scenes/npc/guest_masc/sounds/adult_masc_sly_laugh.wav"
+dest_files=["res://.godot/imported/adult_masc_sly_laugh.wav-4b97cb4ef44fa04e28dcc18772484d60.sample"]
 
 [params]
 

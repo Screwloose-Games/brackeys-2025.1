@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://grbjycephojx"
-path="res://.godot/imported/adult_masc_uh_huh.wav-4bd2561be7dfa6ee3d626eb1c260a7d1.sample"
+path="res://.godot/imported/adult_masc_uh_huh.wav-47fe7b81b42a2ac868e154eceb49dd8f.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/masc/adult_masc_uh_huh.wav"
-dest_files=["res://.godot/imported/adult_masc_uh_huh.wav-4bd2561be7dfa6ee3d626eb1c260a7d1.sample"]
+source_file="res://scenes/npc/best_man/sounds/adult_masc_uh_huh.wav"
+dest_files=["res://.godot/imported/adult_masc_uh_huh.wav-47fe7b81b42a2ac868e154eceb49dd8f.sample"]
 
 [params]
 

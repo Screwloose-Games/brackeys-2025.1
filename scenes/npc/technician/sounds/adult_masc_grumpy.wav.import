@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c32eavku7u40j"
-path="res://.godot/imported/adult_masc_grumpy.wav-69e8b93914e5b62984345a97035cfcb3.sample"
+path="res://.godot/imported/adult_masc_grumpy.wav-49f321eb45fc94e3e246fa22b9ab5637.sample"
 
 [deps]
 
-source_file="res://common/audio/sfx/npc/guests/masc/adult_masc_grumpy.wav"
-dest_files=["res://.godot/imported/adult_masc_grumpy.wav-69e8b93914e5b62984345a97035cfcb3.sample"]
+source_file="res://scenes/npc/technician/sounds/adult_masc_grumpy.wav"
+dest_files=["res://.godot/imported/adult_masc_grumpy.wav-49f321eb45fc94e3e246fa22b9ab5637.sample"]
 
 [params]
 

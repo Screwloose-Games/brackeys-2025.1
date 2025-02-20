@@ -13,6 +13,7 @@ var interaction_detection: Node3D
 @export var actions: Array[NPC_Action] = []
 
 @onready var nav_agent: NavigationAgent3D = %NavAgent
+@onready var npc_phantom_cam: PhantomCamera3D = %NpcPhantomCam
 
 var rings_holder: StaticBody3D
 var player: CharacterBody3D
@@ -82,6 +83,7 @@ func picks_up_rings():
     
 func player_interacts_with_npc():
     being_interacted_with = true
+    npc_phantom_cam.priority = 20
     if has_ring:
         should_use_second_text = true
         has_ring = false
@@ -89,6 +91,7 @@ func player_interacts_with_npc():
 
 func player_stops_interacting():
     being_interacted_with = false
+    npc_phantom_cam.priority = 0
     
 func start_following_player():
     following_player = true

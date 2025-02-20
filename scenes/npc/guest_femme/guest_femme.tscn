@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c476l1jeidomw"]
+
+[ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_h3aco"]
+
+[node name="GuestFemme" instance=ExtResource("1_h3aco")]

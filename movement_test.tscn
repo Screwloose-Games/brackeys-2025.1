@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=23 format=3 uid="uid://dt87dmd0l0vdc"]
 
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://mi3x1qolx66q" path="res://code/npc_action.gd" id="5_unidx"]
 [ext_resource type="Texture2D" uid="uid://b1t65557jgm3q" path="res://F-Key-Sprite.png" id="8_u62bo"]
 [ext_resource type="Texture2D" uid="uid://bqy0drse8s8iq" path="res://Ring-Art.png" id="9_dsagd"]
+[ext_resource type="PackedScene" uid="uid://dqtewjpyyno8e" path="res://scenes/rings.tscn" id="10_0jnl2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
 
@@ -31,6 +32,13 @@ metadata/_custom_type_script = ExtResource("5_unidx")
 [sub_resource type="Resource" id="Resource_dsagd"]
 script = ExtResource("5_unidx")
 action_type = 2
+wait_time = 0.0
+destination = Vector3(0, 0, 0)
+metadata/_custom_type_script = ExtResource("5_unidx")
+
+[sub_resource type="Resource" id="Resource_epw4j"]
+script = ExtResource("5_unidx")
+action_type = 3
 wait_time = 0.0
 destination = Vector3(0, 0, 0)
 metadata/_custom_type_script = ExtResource("5_unidx")
@@ -102,12 +110,11 @@ actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResou
 
 [node name="NPC - Ring Bearer" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9619, 1.26812, 15.8375)
-has_ring = true
 movement_speed = 5.0
 npc_text = "Oh the rings? I didn't realize those were important."
 npc_second_text = "I'm sorry I took those rings..."
 loop_actions = true
-actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_0jnl2"), SubResource("Resource_xbnuk"), SubResource("Resource_ehb08")])
+actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_epw4j"), SubResource("Resource_0jnl2"), SubResource("Resource_xbnuk"), SubResource("Resource_ehb08")])
 
 [node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "follow_button_sprite", "ring_ui_sprite", "dialogue_panel", "dialogue_label")]
 layout_mode = 3
@@ -172,3 +179,6 @@ shape = SubResource("BoxShape3D_58akw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -5, 0, -1)
 mesh = SubResource("BoxMesh_58akw")
+
+[node name="Rings" parent="." instance=ExtResource("10_0jnl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54272, 0.903995, 5.69591)

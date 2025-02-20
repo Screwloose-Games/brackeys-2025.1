@@ -22,8 +22,6 @@ enum AudioBusType {
 @onready var intensify_timer: Timer = $Music/IntensifyTimer
 
 
-
-
 var audio_players: Dictionary = {}
 
 var sfx_dictionary: Dictionary = {
@@ -42,7 +40,13 @@ var sfx_dictionary: Dictionary = {
 	"walk": {
 		"stream": preload("res://common/audio/sfx/player/walk/Walking Loop - Flooring.wav"),
 		"category": SoundCategory.PLAYER
+	},
+	"run": {
+		"stream": preload("res://common/audio/sfx/player/walk/Running Loop - Flooring.wav"),
+		"category": SoundCategory.PLAYER
 	}
+	
+	
 }
 
 var music_dictionary: Dictionary = {

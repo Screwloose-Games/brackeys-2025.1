@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://hg31lhvxsf2i"]
+
+[ext_resource type="AudioStream" uid="uid://8e6jb301kx3b" path="res://common/audio/sfx/environment/background_room_tone_loop_01.wav" id="1_rd4hs"]
+
+[node name="RoomTone" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_rd4hs")
+volume_db = -15.0
+unit_size = 100.0
+max_db = -15.0
+autoplay = true
+max_distance = 60.0
+panning_strength = 0.1
+bus = &"Environment"

@@ -42,6 +42,5 @@ func _on_music_vol_value_changed(value: float) -> void:
 func _on_sfx_vol_value_changed(value: float) -> void:
 	AudioManager.set_volume(AudioManager.AudioBusType.SFX, value)
 
-
-func _on_intensify_pressed() -> void:
-	intensify_music.emit()
+func _on_relaxing_music_pressed() -> void:
+	music_change.emit("light")

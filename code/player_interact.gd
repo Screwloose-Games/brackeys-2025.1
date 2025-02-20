@@ -9,11 +9,16 @@ signal hide_follow_sprite()
 
 var interact_button_sprite: Sprite2D
 var can_interact_with_npc: bool
+var can_pickup_rings: bool
 var npc_text: String
 var currently_interacting: bool
 var has_npc_following: bool
 
 var npc_interacting_with: CharacterBody3D
+var rings_holder: StaticBody3D
+
+func _ready():
+    rings_holder = get_tree().get_first_node_in_group("rings")
 
 func entered_npc_trigger(npc: CharacterBody3D, text: String):
     can_interact_with_npc = true
@@ -31,6 +36,14 @@ func left_npc_trigger():
     currently_interacting = false
     if not has_npc_following:
         hide_follow_sprite.emit()
+        
+func entered_rings_trigger():
+    can_pickup_rings = true
+    show_interact_sprite.emit(true)
+    
+func left_rings_trigger():
+    can_pickup_rings = false
+    show_interact_sprite.emit(false)
 
 func _input(event: InputEvent):
     if event.is_action_pressed("Interact") and can_interact_with_npc:
@@ -38,6 +51,12 @@ func _input(event: InputEvent):
         show_dialogue_panel.emit(npc_text)
         npc_interacting_with.player_interacts_with_npc()
         currently_interacting = true
+    elif event.is_action_pressed("Interact") and can_pickup_rings and rings_holder.can_be_picked_up:
+        #todo emit a special sound for picking something up?
+        WinManager.player_obtained_ring()
+        can_pickup_rings = false
+        show_interact_sprite.emit(false)
+        
         
     if event.is_action_pressed("Follow"):
         if currently_interacting && not has_npc_following:

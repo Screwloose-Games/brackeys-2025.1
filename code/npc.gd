@@ -14,6 +14,7 @@ var interaction_detection: Node3D
 
 @onready var nav_agent: NavigationAgent3D = %NavAgent
 
+var rings_holder: StaticBody3D
 var player: CharacterBody3D
 
 var movement_direction: Vector3
@@ -28,6 +29,7 @@ var index: int = 0
 
 func _ready():
     player = get_tree().get_first_node_in_group("player")
+    rings_holder = get_tree().get_first_node_in_group("rings")
     interaction_detection = get_node("InteractionDetection")
     starting_position = global_position
     commit_action()
@@ -53,6 +55,8 @@ func commit_action():
     match action.action_type:
         NPC_Action.Type.WAIT:
             wait()
+        NPC_Action.Type.PICKS_UP_RINGS:
+            picks_up_rings()
             
 func increment_index():
     index += 1
@@ -66,6 +70,14 @@ func increment_index():
 
 func wait():
     await get_tree().create_timer(actions[index].wait_time).timeout
+    increment_index()
+    
+func picks_up_rings():
+    if not WinManager.player_has_ring:
+        has_ring = true
+        increment_index()
+        rings_holder.npc_took_rings()
+        print("npc has rings!")
     increment_index()
     
 func player_interacts_with_npc():

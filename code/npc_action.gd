@@ -5,6 +5,7 @@ enum Type {
     WAIT,
     MOVE,
     RETURN_TO_STARTING_POSITION,
+    PICKS_UP_RINGS,
 }
 
 @export var action_type: Type = Type.WAIT

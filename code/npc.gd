@@ -58,6 +58,8 @@ func commit_action():
             wait()
         NPC_Action.Type.PICKS_UP_RINGS:
             picks_up_rings()
+        NPC_Action.Type.LOOP:
+            loop_to_step()
             
 func increment_index():
     index += 1
@@ -74,12 +76,16 @@ func wait():
     increment_index()
     
 func picks_up_rings():
-    if not WinManager.player_has_ring:
+    if not WinManager.player_has_ring and not has_ring:
         has_ring = true
         increment_index()
         rings_holder.npc_took_rings()
         print("npc has rings!")
     increment_index()
+
+func loop_to_step():
+    index = actions[index].loop_to_step
+    commit_action()
     
 func player_interacts_with_npc():
     being_interacted_with = true

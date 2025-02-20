@@ -126,16 +126,13 @@ transform = Transform3D(0.285153, 0.958482, 0, -0.651183, 0.19373, 0.733777, 0.7
 
 [node name="NPC" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9663, 1.26812, 4.82545)
-has_ring = false
 movement_speed = 5.0
 npc_text = "Hi! I am a NPC in the test level!"
-npc_second_text = ""
 loop_actions = true
 actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_u62bo"), SubResource("Resource_dsagd"), SubResource("Resource_molkx"), SubResource("Resource_qbfti")])
 
 [node name="NPC - Ring Bearer" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9619, 1.26812, 15.8375)
-has_ring = false
 movement_speed = 5.0
 npc_text = "Oh the rings? I didn't realize those were important."
 npc_second_text = "I'm sorry I took those rings..."

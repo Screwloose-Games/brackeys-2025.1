@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnuav0ci4yqol"]
+
+[ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_trvyb"]
+
+[node name="RingBearer" instance=ExtResource("1_trvyb")]

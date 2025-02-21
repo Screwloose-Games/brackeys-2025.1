@@ -9,6 +9,7 @@
 script = ExtResource("1_gqfen")
 
 [node name="PlayerSounds" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 max_polyphony = 2
 bus = &"SFX"
 

@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_iq31p"]
 
 [node name="Technician" instance=ExtResource("1_iq31p")]
+
+[node name="NpcPhantomCam" parent="." index="6"]
+transform = Transform3D(5.96026e-08, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -1.49012e-08, 5.96046e-08, 2.89443, 1.44721, 5.96046e-08)

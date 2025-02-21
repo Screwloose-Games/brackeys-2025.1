@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://choms03g1c4hs"]
+
+[ext_resource type="AudioStream" uid="uid://ck05dg6qkhm87" path="res://scenes/npc/guest_masc/sounds/adult_masc_sly_laugh.wav" id="1_8ic38"]
+[ext_resource type="AudioStream" uid="uid://bax7yqna7ry7t" path="res://scenes/npc/uncle_bob/sounds/adult_masc_questioning_huh.wav" id="2_7n32p"]
+[ext_resource type="AudioStream" uid="uid://3loty3j822ky" path="res://scenes/npc/uncle_bob/sounds/adult_masc_interested_oh.wav" id="3_x3s1j"]
+
+[resource]
+random_pitch = 1.05
+streams_count = 3
+stream_0/stream = ExtResource("1_8ic38")
+stream_1/stream = ExtResource("2_7n32p")
+stream_2/stream = ExtResource("3_x3s1j")

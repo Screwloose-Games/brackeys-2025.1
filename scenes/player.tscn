@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mskcwn1a1v6d"]
+[gd_scene load_steps=6 format=3 uid="uid://mskcwn1a1v6d"]
 
 [ext_resource type="Script" uid="uid://3r2syidagjkl" path="res://code/player_controller_third_person_4.4.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dt25utof4dlt" path="res://common/art/meshes/skeletalmesh_player/skeletalmesh_player.tscn" id="2_6a8wd"]
 [ext_resource type="Script" uid="uid://dwcvdo5bjrksn" path="res://code/player_interact.gd" id="3_ctvvl"]
+[ext_resource type="PackedScene" uid="uid://b8b6q7g4bsaw5" path="res://common/ui/pause_menu/pause_menu.tscn" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s61dn"]
 
@@ -34,5 +35,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 2.22045e-16, -8.74228e-08, 0, 
 [node name="PlayerInteract" type="Node3D" parent="." node_paths=PackedStringArray("player_controller") groups=["player"]]
 script = ExtResource("3_ctvvl")
 player_controller = NodePath("..")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_dqkch")]
 
 [editable path="PlayerVisual/skeletalmesh_player"]

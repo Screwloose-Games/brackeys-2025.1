@@ -13,6 +13,7 @@ signal player_jumped()
 signal player_landed()
 signal player_started_walking()
 signal player_stopped_walking()
+signal player_sprinting()
 signal player_interacted()
 
 var sprinting: bool
@@ -20,33 +21,35 @@ var is_airborne: bool
 var is_walking: bool
 
 func _ready() -> void:
-        _camera = owner.get_node("%MainCamera3D")
-        
+		_camera = owner.get_node("%MainCamera3D")
+		AudioManager.connect_audio_signals(self)
+		
 func _physics_process(delta: float) -> void:
-    if not is_on_floor():
-        velocity.y -= GRAVITY * delta
-    
-    var input_dir: Vector2 = Input.get_vector(
-        "Move_Left",
-        "Move_Right",
-        "Move_Forward",
-        "Move_Backward",
-    )
-    
-    if Input.is_action_pressed("Sprint"):
-        sprinting = true
-    else:
-        sprinting = false
+	if not is_on_floor():
+		velocity.y -= GRAVITY * delta
+	
+	var input_dir: Vector2 = Input.get_vector(
+		"Move_Left",
+		"Move_Right",
+		"Move_Forward",
+		"Move_Backward",
+	)
+	
+	if Input.is_action_pressed("Sprint"):
+		sprinting = true
+		player_sprinting.emit()
+	else:
+		sprinting = false
 
-    var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-    if direction:
-        if not is_walking && is_on_floor():
-            player_started_walking.emit()
-            is_walking = true
-            
-        var move_dir: Vector3 = Vector3.ZERO
-        move_dir.x = direction.x
-        move_dir.z = direction.z
+	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		if not is_walking && is_on_floor():
+			player_started_walking.emit()
+			is_walking = true
+			
+		var move_dir: Vector3 = Vector3.ZERO
+		move_dir.x = direction.x
+		move_dir.z = direction.z
 
         move_dir = move_dir.rotated(Vector3.UP, _camera.rotation.y).normalized()
         if InputManager.input_mode == InputManager.InputMode.PLAYING:
@@ -73,13 +76,13 @@ func _physics_process(delta: float) -> void:
         is_airborne = false
         player_landed.emit()
 
-    move_and_slide()
-    
+	move_and_slide()
+	
 func get_speed() -> float:
-    if sprinting:
-        return SPRINT_SPEED
-    else:
-        return SPEED
-        
+	if sprinting:
+		return SPRINT_SPEED
+	else:
+		return SPEED
+		
 func player_has_interacted():
-    player_interacted.emit()
+	player_interacted.emit()

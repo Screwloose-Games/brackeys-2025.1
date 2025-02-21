@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://mr8m6fdmymbq" path="res://code/npc.gd" id="1_abqhh"]
 [ext_resource type="Script" uid="uid://c3uuro61u7yty" path="res://code/interaction_detection.gd" id="1_nh2m4"]
-[ext_resource type="Script" uid="uid://dn7rag3jelsj0" path="res://code/npc_audio_player.gd" id="3_4wlns"]
+[ext_resource type="Script" uid="uid://bjid5lcvtfkd0" path="res://code/npc_audio_player.gd" id="3_4wlns"]
 [ext_resource type="Script" uid="uid://crt48wecltrda" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_7n8xq"]
 [ext_resource type="AudioStream" uid="uid://chks17ncui7dx" path="res://common/audio/sfx/npc/npc_footsteps.tres" id="3_tl2vt"]
-[ext_resource type="Script" uid="uid://c0r08oyvi228x" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_4wlns"]
+[ext_resource type="Script" uid="uid://bbixea7raf8yd" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_4wlns"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58akw"]
 

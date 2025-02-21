@@ -7,7 +7,7 @@ signal show_ring_sprite()
 signal success()
 
 func _ready() -> void:
-	AudioManager.connect_audio_signals(self)
+    AudioManager.connect_audio_signals(self)
 
 func player_obtained_ring():
     player_has_ring = true

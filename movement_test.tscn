@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=30 format=3 uid="uid://dt87dmd0l0vdc"]
 
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dqtewjpyyno8e" path="res://scenes/rings.tscn" id="10_0jnl2"]
 [ext_resource type="Texture2D" uid="uid://d3v7q0mf4imfj" path="res://common/art/2d/lockpick-center.png" id="10_ehb08"]
 [ext_resource type="Texture2D" uid="uid://dd8c3nt7qnh61" path="res://common/art/2d/lockpick-center-ring.png" id="11_epw4j"]
-[ext_resource type="PackedScene" uid="uid://g1f6gv86x1bh" path="res://scenes/lockpick.tscn" id="11_xbnuk"]
 [ext_resource type="PackedScene" uid="uid://hg31lhvxsf2i" path="res://common/audio/sfx/environment/room_tone.tscn" id="11_xbnuk"]
 [ext_resource type="PackedScene" uid="uid://dy6n3rhhs0e" path="res://scenes/audio_emitters/dining_noise.tscn" id="12_ehb08"]
+[ext_resource type="PackedScene" uid="uid://g1f6gv86x1bh" path="res://scenes/lockpick.tscn" id="15_qbfti"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
 
@@ -143,7 +143,6 @@ loop_actions = true
 
 [node name="NPC3" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555489, 1.26812, -6.74804)
-
 is_masc = true
 movement_speed = 5.0
 npc_text = "hi, im number 2"
@@ -269,3 +268,6 @@ max_db = -10.0
 
 [node name="DiningNoise" parent="." instance=ExtResource("12_ehb08")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)
+
+[node name="Lockpick2" parent="." instance=ExtResource("15_qbfti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63856, 0.55, 3.90342)

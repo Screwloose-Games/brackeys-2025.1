@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dt87dmd0l0vdc"]
+[gd_scene load_steps=27 format=3 uid="uid://dt87dmd0l0vdc"]
 
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="1_n2kti"]
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="2_httow"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b1t65557jgm3q" path="res://F-Key-Sprite.png" id="8_u62bo"]
 [ext_resource type="Texture2D" uid="uid://bqy0drse8s8iq" path="res://Ring-Art.png" id="9_dsagd"]
 [ext_resource type="PackedScene" uid="uid://dqtewjpyyno8e" path="res://scenes/rings.tscn" id="10_0jnl2"]
+[ext_resource type="PackedScene" uid="uid://hg31lhvxsf2i" path="res://common/audio/sfx/environment/room_tone.tscn" id="11_xbnuk"]
+[ext_resource type="PackedScene" uid="uid://dy6n3rhhs0e" path="res://scenes/audio_emitters/dining_noise.tscn" id="12_ehb08"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e51mn"]
 
@@ -126,34 +128,25 @@ transform = Transform3D(0.285153, 0.958482, 0, -0.651183, 0.19373, 0.733777, 0.7
 
 [node name="NPC" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9663, 1.26812, 4.82545)
-has_ring = false
 movement_speed = 5.0
 npc_text = "Hi! I am a NPC in the test level!"
-npc_second_text = ""
 loop_actions = true
 actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResource("Resource_u62bo"), SubResource("Resource_dsagd"), SubResource("Resource_molkx"), SubResource("Resource_qbfti")])
 
 [node name="NPC2" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7576, 1.26812, -6.95879)
-has_ring = false
 movement_speed = 5.0
-npc_text = ""
-npc_second_text = ""
 loop_actions = true
-actions = Array[ExtResource("5_unidx")]([])
 
 [node name="NPC3" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555489, 1.26812, -6.74804)
-has_ring = false
+is_masc = true
 movement_speed = 5.0
 npc_text = "hi, im number 2"
-npc_second_text = ""
 loop_actions = true
-actions = Array[ExtResource("5_unidx")]([])
 
 [node name="NPC - Ring Bearer" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9619, 1.26812, 15.8375)
-has_ring = false
 movement_speed = 5.0
 npc_text = "Oh the rings? I didn't realize those were important."
 npc_second_text = "I'm sorry I took those rings..."
@@ -226,3 +219,11 @@ mesh = SubResource("BoxMesh_58akw")
 
 [node name="Rings" parent="." instance=ExtResource("10_0jnl2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54272, 0.903995, 5.69591)
+
+[node name="RoomTone" parent="." instance=ExtResource("11_xbnuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45754, 5.69771, 0)
+volume_db = -10.0
+max_db = -10.0
+
+[node name="DiningNoise" parent="." instance=ExtResource("12_ehb08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)

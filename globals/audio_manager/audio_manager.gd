@@ -90,6 +90,7 @@ func _play_sound(sfx_request):
 	
 	var category = sfx_data["category"]
 	var audio_player = audio_players.get(category)
+	
 	if audio_player == null:
 		print("Invalid category: ", category)
 		return

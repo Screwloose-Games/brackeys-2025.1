@@ -49,8 +49,9 @@ func _physics_process(delta: float) -> void:
         move_dir.z = direction.z
 
         move_dir = move_dir.rotated(Vector3.UP, _camera.rotation.y).normalized()
-        velocity.x = move_toward(velocity.x, move_dir.x * get_speed(), ACCELERATION)
-        velocity.z = move_toward(velocity.z, move_dir.z * get_speed(), ACCELERATION)
+        if InputManager.input_mode == InputManager.InputMode.PLAYING:
+            velocity.x = move_toward(velocity.x, move_dir.x * get_speed(), ACCELERATION)
+            velocity.z = move_toward(velocity.z, move_dir.z * get_speed(), ACCELERATION)
     else:
         if is_walking:
             player_stopped_walking.emit()
@@ -59,7 +60,7 @@ func _physics_process(delta: float) -> void:
         velocity.x = move_toward(velocity.x, 0, DECELERATION)
         velocity.z = move_toward(velocity.z, 0, DECELERATION)
     
-    if is_on_floor() and Input.is_action_just_pressed("Jump"):
+    if is_on_floor() and Input.is_action_just_pressed("Jump") && InputManager.input_mode == InputManager.InputMode.PLAYING:
         player_jumped.emit()
         player_stopped_walking.emit()
         is_walking = false

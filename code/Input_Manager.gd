@@ -1,6 +1,6 @@
 extends Node3D
 
-enum InputMode { PLAYING }
+enum InputMode { PLAYING, LOCKPICKING }
     
 var input_mode: InputMode = InputMode.PLAYING;
 

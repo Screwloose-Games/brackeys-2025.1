@@ -34,6 +34,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _set_pcam_rotation(pcam: PhantomCamera3D, event: InputEvent) -> void:
+    if InputManager.input_mode != InputManager.InputMode.PLAYING:
+        return
     if event is InputEventMouseMotion:
         var pcam_rotation_degrees: Vector3
 

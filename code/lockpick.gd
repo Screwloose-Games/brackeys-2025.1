@@ -47,8 +47,10 @@ func check_if_mini_game_won():
     if (disc.rotation_degrees > -25 and disc.rotation_degrees < 25) or (disc.rotation_degrees < -333 or disc.rotation_degrees > 333):
         #succeeded
         can_be_unlocked = false
-        player_interact.player_successfully_picked_lock()
         WinManager.player_picked_lock()
+        show_lockpicking_sprites.emit(false)
+        await get_tree().process_frame
+        InputManager.set_input_mode(InputManager.InputMode.PLAYING)
     else:
         # failed
         await get_tree().create_timer(1).timeout

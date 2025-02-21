@@ -37,14 +37,17 @@ func _physics_process(delta: float) -> void:
     
     if Input.is_action_pressed("Sprint"):
         sprinting = true
-        player_sprinting.emit()
     else:
         sprinting = false
 
     var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
     if direction:
         if not is_walking && is_on_floor():
-            player_started_walking.emit()
+            if sprinting:
+                player_sprinting.emit()
+            else:
+                player_started_walking.emit()
+                
             is_walking = true
             
         var move_dir: Vector3 = Vector3.ZERO
@@ -53,6 +56,7 @@ func _physics_process(delta: float) -> void:
 
         move_dir = move_dir.rotated(Vector3.UP, _camera.rotation.y).normalized()
         if InputManager.input_mode == InputManager.InputMode.PLAYING:
+            
             velocity.x = move_toward(velocity.x, move_dir.x * get_speed(), ACCELERATION)
             velocity.z = move_toward(velocity.z, move_dir.z * get_speed(), ACCELERATION)
     else:

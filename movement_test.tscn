@@ -104,6 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03341, -1.55801)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499998, 0, -0.499999, 0.866021, -1.4013e-45, 2.7834, 1.47306)
 follow_target = NodePath("../Player")
+collision_mask = 2
 
 [node name="MainCamera3D" parent="." instance=ExtResource("4_u62bo")]
 unique_name_in_owner = true
@@ -112,6 +113,8 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1.4013e-4
 
 [node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(1.888, 0, 0, 0, 0.592, 0, 0, 0, 3, -8.59597, 0.573459, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
 shape = SubResource("BoxShape3D_e51mn")

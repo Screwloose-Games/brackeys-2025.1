@@ -134,13 +134,13 @@ actions = Array[ExtResource("5_unidx")]([SubResource("Resource_unidx"), SubResou
 [node name="NPC2" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7576, 1.26812, -6.95879)
 movement_speed = 5.0
-npc_text = "hi, im number one"
+npc_text = "Hi! I am a NPC in the test level!"
 loop_actions = true
 
 [node name="NPC3" parent="." instance=ExtResource("2_httow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555489, 1.26812, -6.74804)
 movement_speed = 5.0
-npc_text = "hi, im number 2"
+npc_text = "Hi! I am a NPC in the test level!"
 loop_actions = true
 
 [node name="NPC - Ring Bearer" parent="." instance=ExtResource("2_httow")]

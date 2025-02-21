@@ -1968,7 +1968,9 @@ func set_near(value: float) -> void:
 
 ## Gets the [member Camera3D.near] value assigned to the [param Camera3DResource].
 func get_near() -> float:
-    return camera_3d_resource.near
+    if camera_3d_resource != null:
+        return camera_3d_resource.near
+    return 0
 
 
 ## Assigns a new [member Camera3D.far] value.[br]

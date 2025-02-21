@@ -8,35 +8,34 @@ signal hide_dialogue_panel()
 signal hide_follow_sprite()
 
 var interact_button_sprite: Sprite2D
-var can_interact_with_npc: bool
 var can_pickup_rings: bool
-var npc_text: String
 var currently_interacting: bool
 var has_npc_following: bool
 
+var npc_storage: Array[NPC_Interaction_Data]
 var npc_interacting_with: CharacterBody3D
+var npc_following: CharacterBody3D
+
 var rings_holder: StaticBody3D
 
 func _ready():
     rings_holder = get_tree().get_first_node_in_group("rings")
 
 func entered_npc_trigger(npc: CharacterBody3D, text: String):
-    can_interact_with_npc = true
-    npc_text = text
-    npc_interacting_with = npc
-    #camera should target npc here
-    show_interact_sprite.emit(true)
+    npc_storage.append(NPC_Interaction_Data.new(text, npc))
+    show_interact_sprite.emit(can_interact_with_npc())
 
-func left_npc_trigger():
-    can_interact_with_npc = false
-    #camera should go back to following player here
+func left_npc_trigger(npc: CharacterBody3D, text: String):
+    if currently_interacting:
+        npc_interacting_with.player_stops_interacting()
+    var data_to_erase_index = npc_storage.bsearch(NPC_Interaction_Data.new(text, npc))
+    npc_storage.remove_at(data_to_erase_index)
     show_interact_sprite.emit(false)
     hide_dialogue_panel.emit()
-    npc_interacting_with.player_stops_interacting()
     currently_interacting = false
     if not has_npc_following:
         hide_follow_sprite.emit()
-        
+  
 func entered_rings_trigger():
     can_pickup_rings = true
     show_interact_sprite.emit(true)
@@ -44,12 +43,16 @@ func entered_rings_trigger():
 func left_rings_trigger():
     can_pickup_rings = false
     show_interact_sprite.emit(false)
+    
+func can_interact_with_npc() -> bool:
+    return npc_storage.size() > 0 && not has_npc_following && not currently_interacting
 
 func _input(event: InputEvent):
-    if event.is_action_pressed("Interact") and can_interact_with_npc:
+    if event.is_action_pressed("Interact") and can_interact_with_npc():
         player_controller.player_has_interacted()
-        show_dialogue_panel.emit(npc_text)
-        npc_interacting_with.player_interacts_with_npc()
+        show_dialogue_panel.emit(get_closest_npc_data().talk_text)
+        get_closest_npc_data().npc_body.player_interacts_with_npc()
+        npc_interacting_with = get_closest_npc_data().npc_body
         currently_interacting = true
     elif event.is_action_pressed("Interact") and can_pickup_rings and rings_holder.can_be_picked_up:
         #todo emit a special sound for picking something up?
@@ -57,16 +60,32 @@ func _input(event: InputEvent):
         can_pickup_rings = false
         show_interact_sprite.emit(false)
         
-        
     if event.is_action_pressed("Follow"):
         if currently_interacting && not has_npc_following:
             #tell npc to start following
             hide_dialogue_panel.emit()
-            npc_interacting_with.start_following_player()
             has_npc_following = true
+            npc_following = npc_interacting_with
+            npc_following.start_following_player()
             
         elif has_npc_following:
             # tell npc to stop following
             has_npc_following = false
-            npc_interacting_with.stop_following_player()
+            npc_following.stop_following_player()
             hide_follow_sprite.emit()
+            
+func get_closest_npc_data() -> NPC_Interaction_Data:
+    if not can_interact_with_npc():
+        print("no npcs!")
+        return null
+    
+    var closest_npc_data: NPC_Interaction_Data
+    var shortest_distance: float = 99999
+    
+    for i in npc_storage.size():
+        var distance = global_position.distance_to(npc_storage.get(i).npc_body.global_position)
+        if distance <= shortest_distance:
+            shortest_distance = distance
+            closest_npc_data = npc_storage.get(i)
+        
+    return closest_npc_data

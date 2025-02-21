@@ -14,4 +14,4 @@ func on_body_entered(body:Node3D):
 
 func on_body_left(body:Node3D):
     if body.is_in_group("player"):
-        player_interact.left_npc_trigger()
+        player_interact.left_npc_trigger(root, root.get_text())

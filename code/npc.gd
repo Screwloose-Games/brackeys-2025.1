@@ -41,6 +41,9 @@ func _physics_process(_delta):
         determine_navigation(player.global_position)
         return
     
+    if actions.size() == 0:
+        return
+    
     if actions[index].action_type == NPC_Action.Type.MOVE:
         determine_navigation(actions[index].destination)
         if nav_agent.is_navigation_finished():
@@ -51,6 +54,9 @@ func _physics_process(_delta):
             increment_index()
 
 func commit_action():
+    if (actions.size() == 0):
+        return
+        
     var action = actions[index]
     
     match action.action_type:

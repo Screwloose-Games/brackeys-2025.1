@@ -25,9 +25,9 @@ enum AudioBusType {
 var audio_players: Dictionary = {}
 
 var sfx_dictionary: Dictionary = {
-	"jump": {
+	"player_jumped": {
 		"stream": [
-			preload("res://common/audio/sfx/player/jump/jump1.wav"), 
+			preload("res://common/audio/sfx/player/jump/Jump1.wav"), 
 			preload("res://common/audio/sfx/player/jump/jump2.wav"), 
 			preload("res://common/audio/sfx/player/jump/jump3.wav")
 		],
@@ -37,11 +37,11 @@ var sfx_dictionary: Dictionary = {
 		"stream": preload("res://common/audio/sfx/player/slide/Swoosh4.wav"),
 		"category": SoundCategory.PLAYER
 	},
-	"walk": {
+	"player_started_walking": {
 		"stream": preload("res://common/audio/sfx/player/walk/Walking Loop - Flooring.wav"),
 		"category": SoundCategory.PLAYER
 	},
-	"run": {
+	"player_sprinting": {
 		"stream": preload("res://common/audio/sfx/player/walk/Running Loop - Flooring.wav"),
 		"category": SoundCategory.PLAYER
 	}
@@ -64,15 +64,21 @@ func _ready() -> void:
 	}
 
 func connect_audio_signals(node: Node):
-	print(node," is being checked for signals")
+	if node.has_signal("player_stopped_walking"):
+		if !node.is_connected("player_stopped_walking", _stop_player_sound):
+				node.connect("player_stopped_walking", _stop_player_sound)
+				print("Signal: player_stopped_walking connected")
+				
 	for sfx_request in sfx_dictionary.keys():
 		if node.has_signal(sfx_request):
 			if !node.is_connected(sfx_request, _play_sound):
 				node.connect(sfx_request, _play_sound.bind(sfx_request))
+				print("Signal: ", sfx_request, " connected")
+				
 		if node.has_signal("music_change"):
 			if !node.is_connected("music_change", _play_music):
 				node.connect("music_change", _play_music)
-				print(node, " has grabbed the aux")
+	
 				
 	for child in node.get_children():
 		if child is Node: #TODO decide a better class to check for
@@ -95,6 +101,13 @@ func _play_sound(sfx_request):
 		print("Invalid category: ", category)
 		return
 	
+	
+	if (sfx_request == "player_sprinting" 
+		&& audio_player.stream == sfx_dictionary["player_sprinting"]["stream"] 
+		&& audio_player.playing
+	):
+		return
+	
 	audio_player.stream = stream_path
 	
 	if !audio_player.stream:
@@ -102,10 +115,15 @@ func _play_sound(sfx_request):
 		return
 	else:
 		audio_player.play()
+		print("Playing ",audio_player.stream)
 
 func _play_music(music_request : String):
 	music.stream = music_dictionary[music_request]
 	music.play()
+
+func _stop_player_sound():
+	player_sounds.stop()
+	
 
 func get_volume(bus: AudioBusType):
 	match(bus):

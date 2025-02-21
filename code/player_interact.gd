@@ -72,9 +72,10 @@ func _input(event: InputEvent):
         can_pickup_rings = false
         show_interact_sprite.emit(false)
     elif event.is_action_pressed("Interact") and can_pick_locks and lock_pick_holder.can_be_unlocked:
-        lock_pick_holder.start_lock_pick_mini_game()
-        show_interact_sprite.emit(false)
-        show_lockpicking_sprites.emit(true)
+        if InputManager.input_mode == InputManager.InputMode.PLAYING:
+            lock_pick_holder.start_lock_pick_mini_game()
+            show_interact_sprite.emit(false)
+            show_lockpicking_sprites.emit(true)
         
     if event.is_action_pressed("Follow"):
         if currently_interacting && not has_npc_following:

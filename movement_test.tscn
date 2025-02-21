@@ -239,6 +239,14 @@ offset_left = 176.0
 offset_top = 514.0
 offset_right = 327.0
 offset_bottom = 537.0
+text = "Press E to Exit"
+
+[node name="Label2" type="Label" parent="Game Ui/Lock-Picking-MiniGame"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 481.0
+offset_right = 327.0
+offset_bottom = 504.0
 text = "Press Space to Stop"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

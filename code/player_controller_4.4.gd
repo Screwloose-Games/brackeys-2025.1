@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
         velocity.x = move_toward(velocity.x, 0, DECELERATION)
         velocity.z = move_toward(velocity.z, 0, DECELERATION)
     
-    if is_on_floor() and Input.is_action_just_pressed("Jump") && InputManager.is_playing_mode():
+    if is_on_floor() and Input.is_action_just_pressed("Jump") and InputManager.is_playing_mode():
         player_jumped.emit()
         player_stopped_walking.emit()
         is_walking = false

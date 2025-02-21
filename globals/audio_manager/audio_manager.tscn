@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://3bt8an6vybn5"]
+[gd_scene load_steps=5 format=3 uid="uid://3bt8an6vybn5"]
 
 [ext_resource type="Script" uid="uid://dclt0c2ynqlpa" path="res://globals/audio_manager/audio_manager.gd" id="1_gqfen"]
+[ext_resource type="AudioStream" uid="uid://bvm1ae5soamrh" path="res://common/audio/music/superweddingplannerdeluxe_bgm_sneak.ogg" id="2_2bgjf"]
+[ext_resource type="AudioStream" uid="uid://bc2qhgfe5enwk" path="res://common/audio/music/superweddingplannerdeluxe_bgm_action.ogg" id="3_1d2wt"]
+[ext_resource type="AudioStream" uid="uid://d4ksfncospag8" path="res://common/audio/music/superweddingplannerdeluxe_bgm_relaxing.ogg" id="4_ulrmu"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_gqfen")
@@ -9,18 +12,20 @@ script = ExtResource("1_gqfen")
 max_polyphony = 2
 bus = &"SFX"
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="SneakMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2bgjf")
 bus = &"Music"
 
-[node name="IntensifyTimer" type="Timer" parent="Music"]
-wait_time = 0.3
-one_shot = true
+[node name="ActionMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1d2wt")
+bus = &"Music"
 
-[node name="MusicBase" type="AudioStreamPlayer" parent="."]
+[node name="RelaxingMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ulrmu")
 bus = &"Music"
 
 [node name="EnvironmentSounds" type="AudioStreamPlayer" parent="."]
 bus = &"Environment"
 
-[node name="UISounds" type="AudioStreamPlayer" parent="."]
+[node name="FeedbackSounds" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

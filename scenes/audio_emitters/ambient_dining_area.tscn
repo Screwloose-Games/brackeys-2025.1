@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://p2ghlfdbekd8"]
+
+[ext_resource type="AudioStream" uid="uid://d01shvooht0mu" path="res://common/audio/sfx/environment/background_people_restaurant_cafe_noisy_chatter_talk_loop_01.wav" id="2_f8p7n"]
+
+[node name="AmbientDiningArea" type="AudioStreamPlayer3D"]
+stream = ExtResource("2_f8p7n")
+unit_size = 100.0
+max_db = 0.0
+autoplay = true
+max_distance = 60.0
+panning_strength = 0.1
+bus = &"Environment"

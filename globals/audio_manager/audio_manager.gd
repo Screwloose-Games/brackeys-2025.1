@@ -33,6 +33,8 @@ enum MusicTransition {
 @onready var action_music: AudioStreamPlayer = $ActionMusic
 @onready var relaxing_music: AudioStreamPlayer = $RelaxingMusic
 
+var current_music
+
 var audio_players: Dictionary = {}
 
 var sfx_dictionary: Dictionary = {
@@ -53,8 +55,16 @@ var sfx_dictionary: Dictionary = {
 		"stream": preload("res://common/audio/sfx/player/walk/Walking Loop - Flooring.wav"),
 		"category": SoundCategory.PLAYER
 	},
+	"player_stopped_walking": {
+		"stream": preload("res://common/audio/sfx/player/walk/sound_stop_walking.wav"),
+		"category": SoundCategory.PLAYER
+	},
 	"player_sprinting": {
 		"stream": preload("res://common/audio/sfx/player/walk/Running Loop - Flooring.wav"),
+		"category": SoundCategory.PLAYER
+	},
+	"player_stopped_sprinting": {
+		"stream": preload("res://common/audio/sfx/player/walk/sound_stop_walking.wav"),
 		"category": SoundCategory.PLAYER
 	},
 	# 
@@ -78,16 +88,15 @@ func _ready() -> void:
 	call_deferred("initialize_volume")
 	_change_music(MusicTransition.TO_RELAX)
 
+func _process(delta: float) -> void:
+	print(sneak_music.volume_db)
+
 func initialize_volume():
 	set_volume(AudioBusType.MASTER, master_volume)
 	set_volume(AudioBusType.SFX, sfx_volume)
 	set_volume(AudioBusType.MUSIC, music_volume)
 
 func connect_audio_signals(node: Node):
-	if node.has_signal("player_stopped_walking"):
-		if !node.is_connected("player_stopped_walking", _stop_player_sound):
-				node.connect("player_stopped_walking", _stop_player_sound)
-				
 	for sfx_request in sfx_dictionary.keys():
 		if node.has_signal(sfx_request):
 			if !node.is_connected(sfx_request, _play_sound):
@@ -127,6 +136,10 @@ func _play_sound(sfx_request):
 			return
 		_change_music(MusicTransition.TO_ACTION)
 	
+	if sfx_request == "player_started_walking":
+		_change_music(MusicTransition.TO_SNEAK)
+	
+	
 	audio_player.stream = stream_path
 	
 	if !audio_player.stream:
@@ -134,9 +147,9 @@ func _play_sound(sfx_request):
 		return
 	else:
 		audio_player.play()
-		print("Playing ",audio_player.stream)
 
 func _change_music(music_request: MusicTransition):
+	print(music_request)
 	var target_music: AudioStreamPlayer
 	
 	match music_request:
@@ -154,6 +167,7 @@ func _change_music(music_request: MusicTransition):
 			fade_out(music_player)
 
 	fade_in(target_music)
+	
 
 func fade_out(audio_player: AudioStreamPlayer):
 	if audio_player.playing:
@@ -164,6 +178,9 @@ func fade_in(audio_player: AudioStreamPlayer):
 	if !audio_player.playing:
 		audio_player.volume_db = -40
 		audio_player.play()
+		var tween = get_tree().create_tween()
+		tween.tween_property(audio_player, "volume_db", 0, fade_time)
+	elif audio_player.volume_db == -40:
 		var tween = get_tree().create_tween()
 		tween.tween_property(audio_player, "volume_db", 0, fade_time)
 		

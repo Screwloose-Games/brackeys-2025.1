@@ -15,6 +15,8 @@ var interaction_detection: Node3D
 @onready var nav_agent: NavigationAgent3D = %NavAgent
 @onready var npc_phantom_cam: PhantomCamera3D = %NpcPhantomCam
 
+@onready var rng = RandomNumberGenerator.new()
+
 var rings_holder: StaticBody3D
 var player: CharacterBody3D
 
@@ -117,6 +119,8 @@ func stop_following_player():
 func get_text() -> String:
     if should_use_second_text:
         return npc_second_text
+    elif npc_text == "":
+        return get_random_response_string()
     else:
         return npc_text
 
@@ -131,3 +135,17 @@ func determine_navigation(destination: Vector3):
     var next_path_position = nav_agent.get_next_path_position()
     velocity = global_position.direction_to(next_path_position) * movement_speed
     move_and_slide()
+    
+func get_random_response_string() -> String:
+    var roll = rng.randi_range(0, 4)
+    match roll:
+        0:
+            return "Do I know you?"
+        1:
+            return "I'm not sure why you're talking to me."
+        2:
+            return "I don't think I can help you."
+        3:
+            return "Do you need something?"
+        _:
+            return "I'm busy."

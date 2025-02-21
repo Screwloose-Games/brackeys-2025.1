@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://df4k6kofg6x4j"]
+
+[ext_resource type="AudioStream" uid="uid://btfrhui6qtk50" path="res://common/audio/sfx/environment/sound_crowd_ambience.wav" id="1_wjb0t"]
+
+[node name="AmbientCrowdChatter" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_wjb0t")
+volume_db = -10.0
+unit_size = 100.0
+max_db = -10.0
+autoplay = true
+max_distance = 60.0
+panning_strength = 0.1
+bus = &"Environment"

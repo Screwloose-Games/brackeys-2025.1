@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7fajswbyvtdr"]
+
+[ext_resource type="AudioStream" uid="uid://xocltb4u21f4" path="res://common/audio/sfx/environment/sound_lobby_ambience.wav" id="1_cgiku"]
+
+[node name="AmbientLobbyArea" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_cgiku")
+volume_db = -10.0
+unit_size = 100.0
+max_db = -10.0
+autoplay = true
+max_distance = 60.0
+panning_strength = 0.1
+bus = &"Environment"

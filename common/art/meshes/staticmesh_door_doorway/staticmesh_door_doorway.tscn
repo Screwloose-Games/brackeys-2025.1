@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq6qfggqsuqhl"]
+
+[ext_resource type="PackedScene" uid="uid://0wvx3nkvdoew" path="res://common/art/meshes/staticmesh_door_doorway/staticmesh_door_doorway.blend" id="1_hn4ac"]
+
+[node name="staticmesh_door_doorway" instance=ExtResource("1_hn4ac")]

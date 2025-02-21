@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://dgnkge0rc5wu8"]
+[gd_scene load_steps=9 format=3 uid="uid://dgnkge0rc5wu8"]
+
+[ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="2_0vhbo"]
+[ext_resource type="PackedScene" uid="uid://cpjxr4snfrv2p" path="res://scenes/player_phantom_camera_3d.tscn" id="3_55n5f"]
+[ext_resource type="PackedScene" uid="uid://da3b7e2bu8rsb" path="res://common/art/meshes/environment/staticmesh_hotel.tscn" id="4_55n5f"]
+[ext_resource type="PackedScene" uid="uid://de65cfgowvmsf" path="res://scenes/main_camera_3d.tscn" id="4_wg11f"]
+[ext_resource type="PackedScene" uid="uid://dc5aimnbtogml" path="res://blockout/blockout_hotel_room.blend" id="5_wg11f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_55n5f"]
+
+[sub_resource type="Sky" id="Sky_g00js"]
+sky_material = SubResource("ProceduralSkyMaterial_55n5f")
+
+[sub_resource type="Environment" id="Environment_wg11f"]
+sky = SubResource("Sky_g00js")
+ambient_light_source = 3
 
 [node name="MainLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wg11f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.4419, 167.261)
+
+[node name="Player" parent="." instance=ExtResource("2_0vhbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.877199, 0.93159, 157)
+
+[node name="PlayerPhantomCamera3D" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_55n5f")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499997, 0, -0.499999, 0.866021, -0.877199, 2.68158, 160.031)
+follow_target = NodePath("../Player")
+
+[node name="MainCamera3D" parent="." instance=ExtResource("4_wg11f")]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.877199, 2.68158, 160.031)
+
+[node name="staticmesh_hotel" parent="." instance=ExtResource("4_55n5f")]
+
+[node name="HotelWallHallwayLeft" parent="staticmesh_hotel" index="48"]
+visible = false
+
+[node name="blockout_hotel_room" parent="." instance=ExtResource("5_wg11f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 9, 124)
+
+[editable path="staticmesh_hotel"]

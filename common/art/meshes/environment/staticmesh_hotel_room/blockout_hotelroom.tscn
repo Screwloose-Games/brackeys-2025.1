@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtsrbjfwkvknt"]
+
+[ext_resource type="PackedScene" uid="uid://dc5aimnbtogml" path="res://blockout/blockout_hotel_room.blend" id="1_hni4n"]
+
+[node name="blockout_hotel_room" instance=ExtResource("1_hni4n")]

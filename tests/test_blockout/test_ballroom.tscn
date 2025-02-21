@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://wdyqay14dync"]
+
+[ext_resource type="PackedScene" uid="uid://lyo2rmyk8082" path="res://common/art/meshes/environment/staticmesh_ballroom/staticmesh_ballroom.tscn" id="1_kcnsp"]
+[ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="2_0c11s"]
+[ext_resource type="PackedScene" uid="uid://cpjxr4snfrv2p" path="res://scenes/player_phantom_camera_3d.tscn" id="3_pcgfo"]
+[ext_resource type="PackedScene" uid="uid://de65cfgowvmsf" path="res://scenes/main_camera_3d.tscn" id="4_0itw2"]
+[ext_resource type="PackedScene" uid="uid://cd83y6jwfojxu" path="res://common/art/meshes/skeletalmesh_worker/skeletalmesh_worker.tscn" id="5_pcgfo"]
+[ext_resource type="PackedScene" uid="uid://bq6qfggqsuqhl" path="res://common/art/meshes/staticmesh_door_doorway/staticmesh_door_doorway.tscn" id="6_0itw2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_krnat"]
+
+[sub_resource type="Sky" id="Sky_g00js"]
+sky_material = SubResource("ProceduralSkyMaterial_krnat")
+
+[sub_resource type="Environment" id="Environment_y1jc8"]
+sky = SubResource("Sky_g00js")
+ambient_light_source = 3
+
+[node name="TestBallroom" type="Node3D"]
+
+[node name="blockout_reception_ballroom" parent="." instance=ExtResource("1_kcnsp")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y1jc8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.4419, 167.261)
+
+[node name="Player" parent="." instance=ExtResource("2_0c11s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="PlayerPhantomCamera3D" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_pcgfo")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499997, 0, -0.499999, 0.866021, -1.4013e-45, 2.74999, 3.03107)
+follow_target = NodePath("../Player")
+
+[node name="MainCamera3D" parent="." instance=ExtResource("4_0itw2")]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1.4013e-45, 2.74999, 3.03107)
+
+[node name="skeletalmesh_worker" parent="." instance=ExtResource("5_pcgfo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 0, 0)
+
+[node name="staticmesh_door_doorway" parent="." instance=ExtResource("6_0itw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)

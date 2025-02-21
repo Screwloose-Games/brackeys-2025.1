@@ -6,9 +6,11 @@ signal show_interact_sprite(show: bool)
 signal show_dialogue_panel(text: String)
 signal hide_dialogue_panel()
 signal hide_follow_sprite()
+signal show_lockpicking_sprites(show: bool)
 
 var interact_button_sprite: Sprite2D
 var can_pickup_rings: bool
+var can_pick_locks: bool
 var currently_interacting: bool
 var has_npc_following: bool
 
@@ -17,9 +19,11 @@ var npc_interacting_with: CharacterBody3D
 var npc_following: CharacterBody3D
 
 var rings_holder: StaticBody3D
+var lock_pick_holder: StaticBody3D
 
 func _ready():
     rings_holder = get_tree().get_first_node_in_group("rings")
+    lock_pick_holder = get_tree().get_first_node_in_group("lock")
 
 func entered_npc_trigger(npc: CharacterBody3D, text: String):
     npc_storage.append(NPC_Interaction_Data.new(text, npc))
@@ -36,6 +40,14 @@ func left_npc_trigger(npc: CharacterBody3D, text: String):
     if not has_npc_following:
         hide_follow_sprite.emit()
   
+func entered_lock_pick_trigger():
+    show_interact_sprite.emit(true)
+    can_pick_locks = true
+    
+func left_lock_pick_trigger():
+    show_interact_sprite.emit(false)
+    can_pick_locks = false
+
 func entered_rings_trigger():
     can_pickup_rings = true
     show_interact_sprite.emit(true)
@@ -59,6 +71,10 @@ func _input(event: InputEvent):
         WinManager.player_obtained_ring()
         can_pickup_rings = false
         show_interact_sprite.emit(false)
+    elif event.is_action_pressed("Interact") and can_pick_locks and lock_pick_holder.can_be_unlocked:
+        lock_pick_holder.start_lock_pick_mini_game()
+        show_interact_sprite.emit(false)
+        show_lockpicking_sprites.emit(true)
         
     if event.is_action_pressed("Follow"):
         if currently_interacting && not has_npc_following:
@@ -89,3 +105,7 @@ func get_closest_npc_data() -> NPC_Interaction_Data:
             closest_npc_data = npc_storage.get(i)
         
     return closest_npc_data
+    
+func player_successfully_picked_lock():
+    show_lockpicking_sprites.emit(false)
+    InputManager.set_input_mode(InputManager.InputMode.PLAYING)

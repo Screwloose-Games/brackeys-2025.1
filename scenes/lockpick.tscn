@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://g1f6gv86x1bh"]
+
+[ext_resource type="Script" uid="uid://cn8fgjpdfojkp" path="res://code/lockpick.gd" id="1_dmqir"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dsagd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dsagd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jnl2"]
+size = Vector3(2, 1, 2)
+
+[node name="Lockpick" type="StaticBody3D" groups=["lock"]]
+script = ExtResource("1_dmqir")
+spin_speed = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dsagd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["lock"]]
+shape = SubResource("BoxShape3D_dsagd")
+
+[node name="Area3D" type="Area3D" parent="." groups=["lock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["lock"]]
+shape = SubResource("BoxShape3D_0jnl2")
+
+[connection signal="body_entered" from="Area3D" to="." method="on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="on_body_left"]

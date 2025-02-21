@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://b26aie71o7nrm"]
+
+[ext_resource type="AudioStream" uid="uid://botmnrw6jx5hk" path="res://scenes/npc/guest_femme/sounds/adult_femme_humming1.wav" id="1_y4ia4"]
+[ext_resource type="AudioStream" uid="uid://c6g87m5b5kl2o" path="res://scenes/npc/guest_femme/sounds/adult_femme_humming2.wav" id="2_5lovg"]
+[ext_resource type="AudioStream" uid="uid://ctjf1unoxwdof" path="res://scenes/npc/guest_femme/sounds/adult_femme_humming3.wav" id="3_dcbem"]
+[ext_resource type="AudioStream" uid="uid://bcgdsckbyn1dd" path="res://scenes/npc/guest_femme/sounds/adult_femme_yawn.wav" id="4_2ku84"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("1_y4ia4")
+stream_1/stream = ExtResource("2_5lovg")
+stream_2/stream = ExtResource("3_dcbem")
+stream_3/stream = ExtResource("4_2ku84")

@@ -1,11 +1,14 @@
 extends Control
 
-signal walk
-signal run
-signal jump
-signal slide
+signal player_jumped()
+signal player_landed()
+signal player_started_walking()
+signal player_stopped_walking()
+signal player_sprinting()
+signal player_interacted()
 signal music_change(track)
 signal intensify_music
+signal success
 
 @onready var music_volume: HSlider = $VBoxContainer/MusicVol
 @onready var sfx_volume: HSlider = $VBoxContainer/SFXVol
@@ -17,22 +20,22 @@ func _ready() -> void:
 	
 
 func _on_walk_pressed() -> void:
-	walk.emit()
+	player_started_walking.emit()
 
 func _on_run_pressed() -> void:
-	run.emit()
+	player_sprinting.emit()
 
 func _on_jump_pressed() -> void:
-	jump.emit()
+	player_jumped.emit()
 
 func _on_slide_pressed() -> void:
-	slide.emit()
+	pass
 
 func _on_sneak_music_pressed() -> void:
-	music_change.emit("sneak")
+	music_change.emit(AudioManager.MusicTransition.TO_SNEAK)
 
 func _on_action_music_pressed() -> void:
-	music_change.emit("action")
+	music_change.emit(AudioManager.MusicTransition.TO_ACTION)
 
 
 func _on_music_vol_value_changed(value: float) -> void:
@@ -43,4 +46,8 @@ func _on_sfx_vol_value_changed(value: float) -> void:
 	AudioManager.set_volume(AudioManager.AudioBusType.SFX, value)
 
 func _on_relaxing_music_pressed() -> void:
-	music_change.emit("light")
+	music_change.emit(AudioManager.MusicTransition.TO_RELAX)
+
+
+func _on_succeed_pressed() -> void:
+	success.emit()

@@ -35,6 +35,10 @@ text = "Jump"
 layout_mode = 2
 text = "Slide"
 
+[node name="Succeed" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Succeed"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -64,6 +68,7 @@ step = 0.1
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Jump" to="." method="_on_jump_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Slide" to="." method="_on_slide_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Succeed" to="." method="_on_succeed_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Sneak Music" to="." method="_on_sneak_music_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Action Music" to="." method="_on_action_music_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Relaxing Music" to="." method="_on_relaxing_music_pressed"]

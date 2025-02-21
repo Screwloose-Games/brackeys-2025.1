@@ -9,3 +9,6 @@ func _input(event: InputEvent):
 
 func set_input_mode(new_mode: InputMode):
     input_mode = new_mode
+    
+func is_playing_mode() -> bool:
+    return input_mode == InputMode.PLAYING

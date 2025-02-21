@@ -49,7 +49,7 @@ func check_if_mini_game_won():
         can_be_unlocked = false
         WinManager.player_picked_lock()
         show_lockpicking_sprites.emit(false)
-        await get_tree().process_frame
+        await get_tree().create_timer(0.5).timeout
         InputManager.set_input_mode(InputManager.InputMode.PLAYING)
     else:
         # failed

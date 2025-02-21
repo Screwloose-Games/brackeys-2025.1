@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd83y6jwfojxu"]
+
+[ext_resource type="PackedScene" uid="uid://becfwcc0clvad" path="res://common/art/meshes/skeletalmesh_worker/skeletalmesh_worker.blend" id="1_lqs3y"]
+
+[node name="skeletalmesh_worker" instance=ExtResource("1_lqs3y")]

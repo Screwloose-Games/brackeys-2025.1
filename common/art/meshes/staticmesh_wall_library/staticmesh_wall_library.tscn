@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsgc7nfpt4f10"]
+
+[ext_resource type="PackedScene" uid="uid://cvc58314ietmk" path="res://common/art/meshes/staticmesh_wall_library/staticmesh_wall_library.blend" id="1_lqv5p"]
+
+[node name="staticmesh_wall_library" instance=ExtResource("1_lqv5p")]

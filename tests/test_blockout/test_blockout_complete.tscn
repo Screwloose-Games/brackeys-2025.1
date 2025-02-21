@@ -1,22 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckc3gm47p3ph3"]
+[gd_scene load_steps=9 format=3 uid="uid://ckc3gm47p3ph3"]
 
-[ext_resource type="PackedScene" uid="uid://dco2xwq83fo1a" path="res://blockout/blockout_master.tscn" id="1_fse4y"]
+[ext_resource type="PackedScene" uid="uid://da3b7e2bu8rsb" path="res://common/art/meshes/environment/staticmesh_hotel.tscn" id="1_783ht"]
+[ext_resource type="PackedScene" uid="uid://dtsrbjfwkvknt" path="res://common/art/meshes/environment/staticmesh_hotel_room/blockout_hotelroom.tscn" id="2_agfjw"]
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="2_fse4y"]
 [ext_resource type="PackedScene" uid="uid://cpjxr4snfrv2p" path="res://scenes/player_phantom_camera_3d.tscn" id="3_783ht"]
 [ext_resource type="PackedScene" uid="uid://de65cfgowvmsf" path="res://scenes/main_camera_3d.tscn" id="4_agfjw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fse4y"]
 
-[sub_resource type="Sky" id="Sky_g00js"]
+[sub_resource type="Sky" id="Sky_783ht"]
 sky_material = SubResource("ProceduralSkyMaterial_fse4y")
 
 [sub_resource type="Environment" id="Environment_fse4y"]
-sky = SubResource("Sky_g00js")
+sky = SubResource("Sky_783ht")
 ambient_light_source = 3
 
 [node name="TestBlockoutComplete" type="Node3D"]
 
-[node name="blockout_master" parent="." instance=ExtResource("1_fse4y")]
+[node name="staticmesh_hotel" parent="." instance=ExtResource("1_783ht")]
+
+[node name="HotelMiddleWall_001" parent="staticmesh_hotel" index="70"]
+visible = false
+
+[node name="blockout_hotel_room" parent="." instance=ExtResource("2_agfjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7603, 8.84417, 124.412)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fse4y")
@@ -25,14 +32,16 @@ environment = SubResource("Environment_fse4y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.4419, 167.261)
 
 [node name="Player" parent="." instance=ExtResource("2_fse4y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1228, 1.93159, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65229, 0.998903, 157.842)
 
 [node name="PlayerPhantomCamera3D" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_783ht")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499997, 0, -0.499999, 0.866021, 17.1228, 3.68158, 3.03107)
+transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499997, 0, -0.499999, 0.866021, -0.65229, 2.74889, 160.873)
 follow_target = NodePath("../Player")
 
 [node name="MainCamera3D" parent="." instance=ExtResource("4_agfjw")]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 17.1228, 3.68158, 3.03107)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.65229, 2.74889, 160.873)
+
+[editable path="staticmesh_hotel"]

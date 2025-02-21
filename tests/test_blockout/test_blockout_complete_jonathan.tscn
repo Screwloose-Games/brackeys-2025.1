@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bck5f3ylc5cff"]
+
+[ext_resource type="PackedScene" uid="uid://dco2xwq83fo1a" path="res://blockout/blockout_master.tscn" id="1_n1l33"]
+[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://scenes/player.tscn" id="2_wdlfu"]
+[ext_resource type="PackedScene" path="res://scenes/player_phantom_camera_3d.tscn" id="3_neu4x"]
+[ext_resource type="PackedScene" path="res://scenes/main_camera_3d.tscn" id="4_8bmpi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fse4y"]
+
+[sub_resource type="Sky" id="Sky_g00js"]
+sky_material = SubResource("ProceduralSkyMaterial_fse4y")
+
+[sub_resource type="Environment" id="Environment_fse4y"]
+sky = SubResource("Sky_g00js")
+ambient_light_source = 3
+
+[node name="TestBlockoutComplete" type="Node3D"]
+
+[node name="blockout_master" parent="." instance=ExtResource("1_n1l33")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fse4y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.4419, 167.261)
+
+[node name="Player" parent="." instance=ExtResource("2_wdlfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.315098, 1.93158, 157.863)
+
+[node name="PlayerPhantomCamera3D" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_neu4x")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.866023, 0.499997, 0, -0.499999, 0.866021, 0.315098, 3.68157, 160.894)
+follow_target = NodePath("../Player")
+
+[node name="MainCamera3D" parent="." instance=ExtResource("4_8bmpi")]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.315098, 3.68157, 160.894)

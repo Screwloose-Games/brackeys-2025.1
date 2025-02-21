@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://da3b7e2bu8rsb"]
+
+[ext_resource type="PackedScene" uid="uid://b5yss8w57s42u" path="res://common/art/meshes/environment/staticmesh_hotel.blend" id="1_4ucnr"]
+
+[node name="staticmesh_hotel" instance=ExtResource("1_4ucnr")]

@@ -106,7 +106,3 @@ func get_closest_npc_data() -> NPC_Interaction_Data:
             closest_npc_data = npc_storage.get(i)
         
     return closest_npc_data
-    
-func player_successfully_picked_lock():
-    show_lockpicking_sprites.emit(false)
-    InputManager.set_input_mode(InputManager.InputMode.PLAYING)

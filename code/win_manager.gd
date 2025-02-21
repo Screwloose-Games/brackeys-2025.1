@@ -3,9 +3,14 @@ extends Node
 var player_has_ring: bool = false
 
 signal show_ring_sprite()
+signal success()
+
+func _ready() -> void:
+	AudioManager.connect_audio_signals(self)
 
 func player_obtained_ring():
-    player_has_ring = true
-    show_ring_sprite.emit()
-    print("player has obtained the ring!")
-    
+	player_has_ring = true
+	show_ring_sprite.emit()
+	success.emit()
+	print("player has obtained the ring!")
+	

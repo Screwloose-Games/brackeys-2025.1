@@ -1,6 +1,6 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://chks17ncui7dx"]
 
-[ext_resource type="AudioStream" uid="uid://qn5lo2bdepc2" path="res://common/audio/sfx/player/walk/Walking Loop - Flooring.wav" id="1_drfhm"]
+[ext_resource type="AudioStream" uid="uid://br1swjyak7j1p" path="res://common/audio/sfx/player/walk/Walking Loop - Flooring.wav" id="1_drfhm"]
 
 [resource]
 random_pitch = 1.2

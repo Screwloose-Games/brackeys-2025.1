@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0p14r0fe04dd"]
+
+[ext_resource type="Script" uid="uid://mr8m6fdmymbq" path="res://code/npc.gd" id="1_abqhh"]
+[ext_resource type="Script" uid="uid://c3uuro61u7yty" path="res://code/interaction_detection.gd" id="1_nh2m4"]
+[ext_resource type="Script" uid="uid://crt48wecltrda" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_7n8xq"]
+[ext_resource type="Script" uid="uid://bbixea7raf8yd" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_4wlns"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58akw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_e51mn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_snpff"]
+size = Vector3(1.3, 1, 1.3)
+
+[sub_resource type="Resource" id="Resource_tl2vt"]
+script = ExtResource("4_4wlns")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_abqhh")
+movement_speed = 1.0
+stopped_follow_wait_time = 3.0
+
+[node name="InteractionDetection" type="Node3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("1_nh2m4")
+root = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_58akw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_e51mn")
+
+[node name="InteractionTrigger" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTrigger"]
+shape = SubResource("BoxShape3D_snpff")
+
+[node name="NavAgent" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+avoidance_enabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+max_distance = 10.0
+bus = &"Environment"
+
+[node name="NpcPhantomCam" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
+unique_name_in_owner = true
+transform = Transform3D(1.19205e-07, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -5.96046e-08, 1.19209e-07, 2.89443, 1.44721, 1.19209e-07)
+script = ExtResource("3_7n8xq")
+follow_mode = 6
+follow_target = NodePath("..")
+look_at_mode = 2
+look_at_target = NodePath("..")
+tween_resource = SubResource("Resource_tl2vt")
+follow_offset = Vector3(2, 1, 0)
+metadata/_custom_type_script = ExtResource("3_7n8xq")
+
+[connection signal="body_entered" from="InteractionTrigger" to="InteractionDetection" method="on_body_entered"]
+[connection signal="body_exited" from="InteractionTrigger" to="InteractionDetection" method="on_body_left"]
+[connection signal="velocity_computed" from="NavAgent" to="." method="_on_nav_agent_velocity_computed"]

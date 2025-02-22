@@ -43,18 +43,18 @@ func _ready():
 func _physics_process(_delta):
     
     if following_player:
-        determine_navigation(player.global_position)
+        determine_navigation(player.global_position, true)
         return
     
     if actions.size() == 0:
         return
     
     if actions[index].action_type == NPC_Action.Type.MOVE:
-        determine_navigation(actions[index].destination)
+        determine_navigation(actions[index].destination, false)
         if nav_agent.is_navigation_finished():
             increment_index()
     elif actions[index].action_type == NPC_Action.Type.RETURN_TO_STARTING_POSITION:
-        determine_navigation(starting_position)
+        determine_navigation(starting_position, false)
         if nav_agent.is_navigation_finished():
             increment_index()
 
@@ -131,13 +131,14 @@ func get_text() -> String:
 func _on_nav_agent_velocity_computed(safe_velocity: Vector3):
     velocity = safe_velocity
     
-func determine_navigation(destination: Vector3):
+func determine_navigation(destination: Vector3, following_player: bool):
     if being_interacted_with or waiting_after_following:
         return
     
     nav_agent.target_position = destination
     var next_path_position = nav_agent.get_next_path_position()
-    velocity = global_position.direction_to(next_path_position) * movement_speed
+    if following_player and not (global_position.distance_to(nav_agent.target_position) - nav_agent.target_desired_distance) <= 0.0:
+        velocity = global_position.direction_to(next_path_position) * movement_speed
     move_and_slide()
     
 func get_random_response_string() -> String:

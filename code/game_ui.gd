@@ -18,7 +18,9 @@ func _ready():
     player_interact.connect("hide_follow_sprite", hide_follow_sprite)
     player_interact.connect("show_lockpicking_sprites", set_lockpicking_visibility)
     lock_pick_holder = get_tree().get_first_node_in_group("lock")
-    lock_pick_holder.connect("show_lockpicking_sprites", set_lockpicking_visibility)
+    
+    if lock_pick_holder != null:
+        lock_pick_holder.connect("show_lockpicking_sprites", set_lockpicking_visibility)
     WinManager.connect("show_ring_sprite", show_ring_ui)
 
 func set_interact_button_visibility(show_sprite: bool):

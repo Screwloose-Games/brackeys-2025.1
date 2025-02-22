@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0a1bwnv6rdr1"]
+
+[ext_resource type="PackedScene" uid="uid://ct2nlyywe82yb" path="res://common/art/meshes/skeletalmesh_bride/skeletalmesh_bride.blend" id="1_8saxb"]
+
+[node name="skeletalmesh_bride" instance=ExtResource("1_8saxb")]
+
+[node name="Point" parent="." index="0"]
+visible = false

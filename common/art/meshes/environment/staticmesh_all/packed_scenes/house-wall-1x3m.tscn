@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=4 uid="uid://krde4qlj3uv1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrb0p"]
+resource_name = "14 BROWN-LIGHTEST"
+cull_mode = 2
+albedo_color = Color(0.862745, 0.74902, 0.603922, 1)
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {}
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5xdx"]
+resource_name = "23 GREY-WHITE"
+cull_mode = 2
+albedo_color = Color(0.858824, 0.858824, 0.854902, 1)
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a45ng"]
+_surfaces = [{
+"aabb": AABB(7.15256e-06, 0, 0, 1.002, 3.005, 0.2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAAEAAEAAQAFAAMABAAAAAYABQAGAAMABAAGAAcABQAHAAYA"),
+"name": "14 BROWN-LIGHTEST",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA/v8AAP//AAAAAAAA/////wAAAAAAAAAA/v8AAP//kf///wAAAAD//wAAAAAAAJH///8AAA==")
+}, {
+"aabb": AABB(7.15256e-06, 0, 0.2, 1.002, 3, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "23 GREY-WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAP//SQIAAP////9JAgAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6wkqx"]
+resource_name = "staticmesh_environment_all_house-wall-1x3m"
+_surfaces = [{
+"aabb": AABB(7.15256e-06, 0, 0, 1.002, 3.005, 0.2),
+"attribute_data": PackedByteArray("lIrv7Zd5z5iUis+Yl3nv7eNnpP/heFoA4Xik/+NnxwCXeaXuts6k/5d5pP+2zqXuMFZaAC5npP8wVjf/LmdaAA=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_vrb0p"),
+"name": "14 BROWN-LIGHTEST",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAAAAVNX//wAA/v9U1f//AAAAAFTVAAAAAP7/VNX//wAA/v//v/////8AAP+///8AAAAA/7///5H/////v///kf//////AAD//wAA////////AAD//wAAkf//////AAAAAP7///8AAP//AAD//wAAkf//////AAAAAAAA//9UVVRVVFVUVVRVVFVUVVRV/38AAP9/AAD/fwAA/38AAP9/Mr//fzK//38yv/9/Mr//P/9//z//f/8//3//P/9/")
+}, {
+"aabb": AABB(7.15256e-06, 0, 0.2, 1.002, 3, 1e-05),
+"attribute_data": PackedByteArray("WgDHAHpVpP9aAKT/elXHAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_v5xdx"),
+"name": "23 GREY-WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAA//8AAP//SQL///////9JAv//AAAAAAAA////f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a45ng")
+
+[node name="house-wall-1x3m" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_6wkqx")
+skeleton = NodePath("")
+metadata/extras = {
+"blenderkit": {}
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]

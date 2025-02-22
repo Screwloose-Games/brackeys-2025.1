@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckc3gm47p3ph3"]
+[gd_scene load_steps=13 format=3 uid="uid://ckc3gm47p3ph3"]
 
 [ext_resource type="PackedScene" uid="uid://da3b7e2bu8rsb" path="res://common/art/meshes/environment/staticmesh_hotel.tscn" id="1_783ht"]
 [ext_resource type="PackedScene" uid="uid://dtsrbjfwkvknt" path="res://common/art/meshes/environment/staticmesh_hotel_room/blockout_hotelroom.tscn" id="2_agfjw"]
 [ext_resource type="PackedScene" uid="uid://mskcwn1a1v6d" path="res://scenes/player.tscn" id="2_fse4y"]
 [ext_resource type="PackedScene" uid="uid://cpjxr4snfrv2p" path="res://scenes/player_phantom_camera_3d.tscn" id="3_783ht"]
 [ext_resource type="PackedScene" uid="uid://de65cfgowvmsf" path="res://scenes/main_camera_3d.tscn" id="4_agfjw"]
+[ext_resource type="PackedScene" uid="uid://c5krwxpinwdky" path="res://scenes/npc/best_man/best_man.tscn" id="6_s6q7e"]
+[ext_resource type="PackedScene" uid="uid://cpuh6wy3mvwo4" path="res://scenes/rings.tscn" id="7_rgndf"]
+[ext_resource type="PackedScene" uid="uid://dnuav0ci4yqol" path="res://scenes/npc/ring_bearer/ring_bearer.tscn" id="8_dew5v"]
+[ext_resource type="PackedScene" uid="uid://dygknbblbewie" path="res://common/art/meshes/environment/staticmesh_all/packed_scenes/house-wall-3x3m.tscn" id="9_ojr7s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fse4y"]
 
@@ -19,7 +23,7 @@ ambient_light_source = 3
 
 [node name="staticmesh_hotel" parent="." instance=ExtResource("1_783ht")]
 
-[node name="HotelMiddleWall_001" parent="staticmesh_hotel" index="70"]
+[node name="Cube_005" parent="staticmesh_hotel" index="52"]
 visible = false
 
 [node name="blockout_hotel_room" parent="." instance=ExtResource("2_agfjw")]
@@ -43,5 +47,17 @@ follow_target = NodePath("../Player")
 unique_name_in_owner = true
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.65229, 2.74889, 160.873)
+
+[node name="BestMan" parent="." instance=ExtResource("6_s6q7e")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 4, 0, 140)
+
+[node name="Rings" parent="." instance=ExtResource("7_rgndf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, 141.7)
+
+[node name="RingBearer" parent="." instance=ExtResource("8_dew5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 136)
+
+[node name="house-wall-3x3m" parent="." instance=ExtResource("9_ojr7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 135)
 
 [editable path="staticmesh_hotel"]

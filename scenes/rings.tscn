@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqtewjpyyno8e"]
+[gd_scene load_steps=6 format=3 uid="uid://cpuh6wy3mvwo4"]
 
-[ext_resource type="Script" uid="uid://c36uqjpila5i0" path="res://rings.gd" id="1_iibxr"]
+[ext_resource type="Script" path="res://rings.gd" id="1_iibxr"]
+[ext_resource type="PackedScene" uid="uid://dwn4dh46alqtc" path="res://common/art/meshes/staticmesh_ringbox/staticmesh_ringbox.tscn" id="2_gv0ru"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dsagd"]
 
@@ -12,10 +13,14 @@ size = Vector3(2, 1, 2)
 [node name="Rings" type="StaticBody3D" groups=["rings"]]
 script = ExtResource("1_iibxr")
 
+[node name="staticmesh_ringbox" parent="." instance=ExtResource("2_gv0ru")]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_dsagd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("BoxShape3D_dsagd")
 
 [node name="Area3D" type="Area3D" parent="." groups=["rings"]]

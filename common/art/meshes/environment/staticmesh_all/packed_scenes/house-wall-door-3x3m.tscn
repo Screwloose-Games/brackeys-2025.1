@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=4 uid="uid://cxck2l02ajkkw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5xdx"]
+resource_name = "23 GREY-WHITE"
+cull_mode = 2
+albedo_color = Color(0.858824, 0.858824, 0.854902, 1)
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {}
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrb0p"]
+resource_name = "14 BROWN-LIGHTEST"
+cull_mode = 2
+albedo_color = Color(0.862745, 0.74902, 0.603922, 1)
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {}
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twwyd"]
+resource_name = "58 WHITE"
+cull_mode = 2
+albedo_color = Color(0.878431, 0.87451, 0.87451, 1)
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {},
+"corona": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_em17y"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0.2, 3, 3, 1e-05),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIAAAAFAAEABgAFAAAABgAAAAcA"),
+"name": "23 GREY-WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("zExDxIYBAAD/////SQIAADKzQ8SGAQAA//8AAAAAAAAyswAAAAAAAAAA//9JAgAAAAAAAAAAAADMTAAAAAAAAA==")
+}, {
+"aabb": AABB(0, 0, 3.03984e-06, 3, 3.005, 0.199997),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAADAAQAAAAFAAEABQAGAAEABQAHAAYACAAGAAcACAAJAAYACgAJAAgACgALAAkA"),
+"name": "14 BROWN-LIGHTEST",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("//8AAP7/AAD/////AAAAAP//AAAAAAAA7q4AAAAAAAAyswAA/v8AAP//kf///wAAAAD//wAAAAAAAJH///8AAAAAAAD+/wAAAAAAAAAAAADMTAAA/v8AABBRAAAAAAAA")
+}, {
+"aabb": AABB(0.9, 0, 3.03984e-06, 1.2, 2.3, 0.199997),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAADAAQAAAAFAAEABAADAAYABQAGAAEABgAHAAEABgAIAAcABQAJAAYABAAGAAkABQAKAAkABAAJAAoABQALAAoAAAALAAUABAAKAAwAAAANAAsABAAMAA0ABAANAAAA"),
+"name": "58 WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("VRXd9P//AAAAAAAA/v8AAAAA/////wAA/v//////AACp6t30//8AAFUVIQv+/wAA//8AAP7/AACqCgAAAAAAAFT1AAAAAAAAqeohC/7/AACp6iELAAAAAFUVIQsAAAAAqerd9AAAAABVFd30AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n8rri"]
+resource_name = "staticmesh_environment_all_house-wall-door-3x3m"
+_surfaces = [{
+"aabb": AABB(0, 0, 0.2, 3, 3, 1e-05),
+"attribute_data": PackedByteArray("0m8S0zsKwvVPORLTOwoYYU85GGHlnsL15Z4YYdJvGGE="),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIAAAAFAAEABgAFAAAABgAAAAcA"),
+"material": SubResource("StandardMaterial3D_v5xdx"),
+"name": "23 GREY-WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("zExDxIYB////////SQL//zKzQ8SGAf////8AAAAA//8yswAAAAD//wAA//9JAv//AAAAAAAA///MTAAAAAD///9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9/")
+}, {
+"aabb": AABB(0, 0, 3.03984e-06, 3, 3.005, 0.199997),
+"attribute_data": PackedByteArray("OwoYYVIAAvZSABhhOwrC9TsKwvXlnqz/Owqs/+WewvXlnhhhz6gC9uWewvXPqBhhc6mY0FyzrP9zqaz/XLOY0HOpAmtcsxaac6kWmlyzAms="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_vrb0p"),
+"name": "14 BROWN-LIGHTEST",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("//8AAP7/////////AAD/////AAAAAP////+R/////////5H//////wAA//8AAP///////wAA//8AAJH//////wAAAAD+////AAD//wAA//8AAJH//////wAAAAAAAP//zEwAAP7/c9AAAAAAAACJ1AAAAAD+/1TVEFEAAAAA0s///wAA/v8X1u6uAAAAAFraMrMAAP7/T9v//wAAAABU1f+//3//v/9//7//f/+//3//fzK//38yv/9/Mr//fzK//z//f/8//3//P/9//z//f/FOhlhcVNFVVFVUVQdO+1g9VuBUClt6Ug9c91FUVVRV")
+}, {
+"aabb": AABB(0.9, 0, 3.03984e-06, 1.2, 2.3, 0.199997),
+"attribute_data": PackedByteArray("EIlWS1U9+k+VhEVIS4DGHPs311cQiccW4CfeFzsRuwsQiccWvpRWSxCJVku+lMcWEIlWSyw5kF/7N9dXQYoPU/s311dSAFgUOxG7CxInc2AQiccWSRJSAB2KXgs7EbsLc6kWmlyzmNBzqZjQXLMWmg=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAAADAAUABAAGAAEABQADAAYABAAHAAYABQAGAAcACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkA"),
+"material": SubResource("StandardMaterial3D_twwyd"),
+"name": "58 WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("VRXd9P//sJQAAAAA/v/G5QAA/////2WT/v//////K+VVFSEL/v8i5Knq3fT//6fp//8AAP7/F2Gp6iEL/v9Zmanq3fT//1TVVRXd9AAAVNVVFd30//9U1anq3fQAAFTVVRXd9P//09FVFSELAADT0VUVIQv+/9PRVRXd9AAA09FVFSEL/v9Q4qnqIQsAAFDiqeohC/7/UOJVFSELAABQ4qnq3fT//4bXqeohCwAAhtep6t30AACG16nqIQv+/4bX//8AAP7/wtmqCgAAAADL0AAAAAD+/9LPVPUAAAAAT9v//////////////////////////////////////////1VVVFVVVVRVVVVUVVRVVFUkL20oJC9tKCQvbSgkL20o5ZyMseWcjLHlnIyx5ZyMsejXCtTo1wrU6NcK1OjXCtRlWsxSbk9IWAdO+1gPXPdR")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_em17y")
+
+[node name="house-wall-door-3x3m" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_n8rri")
+skeleton = NodePath("")
+metadata/extras = {
+"blenderkit": {}
+}
+metadata/blenderkit = "{  }"

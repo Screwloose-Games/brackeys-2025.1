@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b51ohvflm3k7u"]
+[gd_scene load_steps=3 format=3 uid="uid://b51ohvflm3k7u"]
 
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_iq31p"]
+[ext_resource type="PackedScene" uid="uid://cd83y6jwfojxu" path="res://common/art/meshes/skeletalmesh_worker/skeletalmesh_worker.tscn" id="2_pme5p"]
 
 [node name="Technician" instance=ExtResource("1_iq31p")]
 
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
 [node name="NpcPhantomCam" parent="." index="6"]
-transform = Transform3D(5.96026e-08, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -1.49012e-08, 5.96046e-08, 2.89443, 1.44721, 5.96046e-08)
+transform = Transform3D(5.95951e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.99984, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
+
+[node name="skeletalmesh_worker" parent="." index="7" instance=ExtResource("2_pme5p")]

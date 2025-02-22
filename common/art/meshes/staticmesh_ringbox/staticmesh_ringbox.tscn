@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwn4dh46alqtc"]
+
+[ext_resource type="PackedScene" uid="uid://dd8sk6eg04d5j" path="res://common/art/meshes/staticmesh_ringbox/staticmesh_ringbox.blend" id="1_tp8bi"]
+
+[node name="staticmesh_ringbox" instance=ExtResource("1_tp8bi")]

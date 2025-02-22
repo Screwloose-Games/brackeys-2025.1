@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://btasi6qnx8wyd"]
+
+[ext_resource type="PackedScene" uid="uid://b85kx48rgghpt" path="res://common/art/meshes/skeletalmesh_drunkle/skeletalmesh_drunkle.blend" id="1_xxalc"]
+
+[node name="skeletalmesh_drunkle" instance=ExtResource("1_xxalc")]

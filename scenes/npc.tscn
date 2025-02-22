@@ -54,7 +54,7 @@ npc_root = NodePath("..")
 
 [node name="NpcPhantomCam" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
 unique_name_in_owner = true
-transform = Transform3D(1.19205e-07, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -5.96046e-08, 1.19209e-07, 2.89443, 1.44721, 1.19209e-07)
+transform = Transform3D(5.96026e-08, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -1.49012e-08, 5.96046e-08, 2.89443, 1.44721, 5.96046e-08)
 script = ExtResource("3_7n8xq")
 follow_mode = 6
 follow_target = NodePath("..")

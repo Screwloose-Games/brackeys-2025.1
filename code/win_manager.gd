@@ -18,4 +18,6 @@ func player_obtained_ring():
 func player_picked_lock():
     player_has_picked_lock = true
     print("player has picked the lock!")
-  
+
+func has_player_won() -> bool:
+    return player_has_ring and player_has_picked_lock

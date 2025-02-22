@@ -77,6 +77,8 @@ func _input(event: InputEvent):
         get_closest_npc_data().npc_body.player_interacts_with_npc()
         npc_interacting_with = get_closest_npc_data().npc_body
         currently_interacting = true
+        if npc_interacting_with.is_bride:
+            GlobalSignalBus.set_ending_visibility.emit(true)
     elif event.is_action_pressed("Interact") and can_pickup_rings and rings_holder.can_be_picked_up:
         #todo emit a special sound for picking something up?
         WinManager.player_obtained_ring()

@@ -60,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24025, 0.55, 7.00006)
 
 [node name="NPC" parent="." instance=ExtResource("9_wesos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13979, 1.05, 1.51266)
+is_bride = true
 movement_speed = 3.0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

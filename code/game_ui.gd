@@ -6,6 +6,7 @@ extends Control
 @export var dialogue_panel: Panel
 @export var dialogue_label: Label
 @export var lock_picking_sprites: Control
+@export var ending_panel: Panel
 
 var player_interact: Node3D
 var lock_pick_holder: StaticBody3D
@@ -18,6 +19,7 @@ func _ready():
     player_interact.connect("hide_follow_sprite", hide_follow_sprite)
     player_interact.connect("show_lockpicking_sprites", set_lockpicking_visibility)
     lock_pick_holder = get_tree().get_first_node_in_group("lock")
+    GlobalSignalBus.connect("set_ending_visibility", set_ending_visibility)
     
     if lock_pick_holder != null:
         lock_pick_holder.connect("show_lockpicking_sprites", set_lockpicking_visibility)
@@ -43,3 +45,24 @@ func show_ring_ui():
     
 func set_lockpicking_visibility(show_sprite: bool):
     lock_picking_sprites.visible = show_sprite
+    
+func set_ending_visibility(show_ending_panel: bool):
+    ending_panel.visible = show_ending_panel
+    if show_ending_panel:
+        InputManager.set_input_mode(InputManager.InputMode.END_GAME_PANEL)
+        Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+    
+func end_game_yes_button_pressed():
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+    ending_panel.visible = false
+    if WinManager.has_player_won():
+        print("you won!")
+    else:
+        print("you lost!")
+    # handle game winning here.
+    # idk, zoom in on each ga
+    
+func end_game_no_button_pressed():
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+    ending_panel.visible = false
+    InputManager.set_input_mode(InputManager.InputMode.PLAYING)

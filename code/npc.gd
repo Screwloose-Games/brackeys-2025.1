@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+## Should only ever be one NPC with this checked.
+@export var is_bride: bool
 @export var is_masc: bool
 @export var has_ring: bool
 @export var movement_speed: float

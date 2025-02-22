@@ -44,7 +44,7 @@ player_controller = NodePath("..")
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_dqkch")]
 
-[node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "follow_button_sprite", "ring_ui_sprite", "dialogue_panel", "dialogue_label", "lock_picking_sprites")]
+[node name="Game Ui" type="Control" parent="." node_paths=PackedStringArray("interact_button_sprite", "follow_button_sprite", "ring_ui_sprite", "dialogue_panel", "dialogue_label", "lock_picking_sprites", "ending_panel")]
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 1.011
@@ -58,6 +58,7 @@ ring_ui_sprite = NodePath("Ring Sprite")
 dialogue_panel = NodePath("Dialogue Panel")
 dialogue_label = NodePath("Dialogue Panel/Dialogue Label")
 lock_picking_sprites = NodePath("Lock-Picking-MiniGame")
+ending_panel = NodePath("Ending Panel")
 
 [node name="E-Key" type="Sprite2D" parent="Game Ui"]
 visible = false
@@ -137,5 +138,50 @@ offset_top = 481.0
 offset_right = 327.0
 offset_bottom = 504.0
 text = "Press Space to Stop"
+
+[node name="Ending Panel" type="Panel" parent="Game Ui"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.361
+anchor_top = 0.353
+anchor_right = 0.644
+anchor_bottom = 0.569
+offset_left = -10.955
+offset_top = -0.215012
+offset_right = 0.179932
+offset_bottom = 0.304993
+
+[node name="Label" type="Label" parent="Game Ui/Ending Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.991
+anchor_bottom = 0.426
+offset_left = 8.0
+offset_right = -3.95801
+offset_bottom = 1.508
+text = "Start the wedding? (This will end the game)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Yes Button" type="Button" parent="Game Ui/Ending Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 81.0
+offset_bottom = 103.0
+text = "Yes"
+
+[node name="No Button" type="Button" parent="Game Ui/Ending Panel"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 72.0
+offset_right = 285.0
+offset_bottom = 103.0
+text = "No"
+
+[connection signal="pressed" from="Game Ui/Ending Panel/Yes Button" to="Game Ui" method="end_game_yes_button_pressed"]
+[connection signal="pressed" from="Game Ui/Ending Panel/No Button" to="Game Ui" method="end_game_no_button_pressed"]
 
 [editable path="PlayerVisual/skeletalmesh_player"]

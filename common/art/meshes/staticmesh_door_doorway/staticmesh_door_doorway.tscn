@@ -1,5 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq6qfggqsuqhl"]
+[gd_scene load_steps=6 format=3 uid="uid://bq6qfggqsuqhl"]
 
 [ext_resource type="PackedScene" uid="uid://0wvx3nkvdoew" path="res://common/art/meshes/staticmesh_door_doorway/staticmesh_door_doorway.blend" id="1_hn4ac"]
+[ext_resource type="Script" uid="uid://b7fj6t55gldcl" path="res://code/door.gd" id="2_ch8ds"]
 
-[node name="staticmesh_door_doorway" instance=ExtResource("1_hn4ac")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ch8ds"]
+size = Vector3(1, 2.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kjpv"]
+size = Vector3(0.2, 3, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avsak"]
+size = Vector3(2.52979, 1, 1.11499)
+
+[node name="staticmesh_door_doorway" node_paths=PackedStringArray("door_model") instance=ExtResource("1_hn4ac")]
+transform = Transform3D(1, 0.000118458, 0.00010846, -0.000118458, 1, -0.00010518, -0.00010846, 0.00010518, 1, 0, 0, 0)
+script = ExtResource("2_ch8ds")
+door_model = NodePath("door-house-simple")
+
+[node name="door-house-simple" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500003, -1.81899e-12, 0.149101)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door-house-simple" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door-house-simple/StaticBody3D" index="0"]
+transform = Transform3D(1, -1.4988e-11, -2.18279e-11, 1.68212e-11, 1, 7.27596e-12, 2.91038e-11, -7.27596e-12, 1, 0.519515, 1.11404, -6.08861e-05)
+shape = SubResource("BoxShape3D_ch8ds")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="house-wall-door-2x3m" index="0"]
+transform = Transform3D(1, -4.36984e-13, 0, 2.26841e-12, 1, 0, 1.45519e-11, 0, 1, 1.76519, 0.00021924, 0.0963978)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house-wall-door-2x3m/StaticBody3D" index="0"]
+transform = Transform3D(1, -4.36984e-13, 0, 2.27196e-12, 1, 0, 3.63798e-11, 0, 1, 0.125245, 1.42098, -0.000135891)
+shape = SubResource("BoxShape3D_7kjpv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="house-wall-door-2x3m/StaticBody3D" index="1"]
+transform = Transform3D(1, -4.36984e-13, 0, 2.27374e-12, 1, 0, 5.09317e-11, 0, 1, -1.67603, 1.42077, -0.000331245)
+shape = SubResource("BoxShape3D_7kjpv")
+
+[node name="player-detector" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, -4.36984e-13, 0, 2.26752e-12, 1, 0, 7.27596e-12, 0, 1, 0.239164, 2.83337e-05, 2.59368e-05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player-detector" index="0"]
+transform = Transform3D(1, -4.36984e-13, 0, 2.35723e-12, 1, 0, 8.65839e-10, 0, 1, 0.764893, 8.6402e-12, 0.0413818)
+shape = SubResource("BoxShape3D_avsak")
+
+[connection signal="body_entered" from="player-detector" to="." method="on_body_entered"]
+[connection signal="body_exited" from="player-detector" to="." method="on_body_left"]

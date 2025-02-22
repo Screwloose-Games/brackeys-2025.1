@@ -13,10 +13,12 @@ var can_pickup_rings: bool
 var can_pick_locks: bool
 var currently_interacting: bool
 var has_npc_following: bool
+var has_nearby_door: bool
 
 var npc_storage: Array[NPC_Interaction_Data]
 var npc_interacting_with: CharacterBody3D
 var npc_following: CharacterBody3D
+var door_in_range: Node3D
 
 var rings_holder: StaticBody3D
 var lock_pick_holder: StaticBody3D
@@ -56,6 +58,15 @@ func left_rings_trigger():
     can_pickup_rings = false
     show_interact_sprite.emit(false)
     
+func entered_door_trigger(door: Node3D):
+    door_in_range = door
+    has_nearby_door = true
+    show_interact_sprite.emit(true)
+
+func left_door_trigger():
+    has_nearby_door = false
+    show_interact_sprite.emit(false)
+    
 func can_interact_with_npc() -> bool:
     return npc_storage.size() > 0 && not has_npc_following && not currently_interacting
 
@@ -76,6 +87,8 @@ func _input(event: InputEvent):
             lock_pick_holder.start_lock_pick_mini_game()
             show_interact_sprite.emit(false)
             show_lockpicking_sprites.emit(true)
+    elif event.is_action_pressed("Interact") and has_nearby_door and InputManager.is_playing_mode():
+        door_in_range.interact_with_door()
         
     if event.is_action_pressed("Follow"):
         if currently_interacting && not has_npc_following:

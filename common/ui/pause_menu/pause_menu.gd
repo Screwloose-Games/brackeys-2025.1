@@ -47,6 +47,7 @@ func on_continue_pressed():
     get_tree().paused = false
     visible = false
     GlobalSignalBus.game_unpaused.emit()
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
     #queue_free()
 
 

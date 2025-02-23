@@ -1,14 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://6ocex1kx5bhc"]
+[gd_scene load_steps=7 format=3 uid="uid://6ocex1kx5bhc"]
 
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_vqvjh"]
 [ext_resource type="PackedScene" uid="uid://b0a1bwnv6rdr1" path="res://common/art/meshes/skeletalmesh_bride/skeletalmesh_bride.tscn" id="2_nfag4"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nfag4"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_23e5i"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4wdm8"]
+states/Start/position = Vector2(149, 152)
+states/idle/node = SubResource("AnimationNodeAnimation_nfag4")
+states/idle/position = Vector2(329, 70)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_23e5i")]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_nfag4"]
+graph_offset = Vector2(-236.068, -12.651)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_4wdm8")
+nodes/StateMachine/position = Vector2(-60, 120)
+node_connections = [&"output", 0, &"StateMachine"]
+
 [node name="Bride" instance=ExtResource("1_vqvjh")]
 
-[node name="MeshInstance3D" parent="." index="2"]
+[node name="AnimationTree" parent="." index="0"]
+root_node = NodePath("../skeletalmesh_bride")
+tree_root = SubResource("AnimationNodeBlendTree_nfag4")
+anim_player = NodePath("../skeletalmesh_bride/AnimationPlayer")
+
+[node name="MeshInstance3D" parent="." index="3"]
 visible = false
 
-[node name="NpcPhantomCam" parent="." index="6"]
-transform = Transform3D(5.95961e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.999857, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
-
 [node name="skeletalmesh_bride" parent="." index="7" instance=ExtResource("2_nfag4")]
+
+[node name="NpcPhantomCam" parent="." index="8"]
+transform = Transform3D(5.95396e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.998909, 0, 5.96047e-08, 2.70711, 2.70711, 5.96047e-08)
+
+[editable path="skeletalmesh_bride"]

@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="brackeys-2025.1"
-run/main_scene="uid://dojwu3hushcfj"
+run/main_scene="uid://daabskcdhrpea"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalSignalBus="*res://globals/global_signal_bus.gd"
-SceneManager="*res://globals/scene_manager.gd"
 InputManager="*res://code/input_manager.gd"
+SceneManager="*res://globals/scene_manager.gd"
 AudioManager="*res://globals/audio_manager/audio_manager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 WinManager="*res://code/win_manager.gd"
@@ -28,7 +28,7 @@ GameSettings="*res://globals/game_settings.tscn"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

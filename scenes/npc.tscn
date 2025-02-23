@@ -25,6 +25,8 @@ script = ExtResource("1_abqhh")
 movement_speed = 1.0
 stopped_follow_wait_time = 3.0
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
 [node name="InteractionDetection" type="Node3D" parent="." node_paths=PackedStringArray("root")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_nh2m4")
@@ -59,7 +61,7 @@ npc_root = NodePath("..")
 
 [node name="NpcPhantomCam" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
 unique_name_in_owner = true
-transform = Transform3D(5.96026e-08, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -1.49012e-08, 5.96046e-08, 2.89443, 2.44721, 5.96046e-08)
+transform = Transform3D(5.96004e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.999929, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
 script = ExtResource("3_7n8xq")
 follow_mode = 6
 follow_target = NodePath("..")

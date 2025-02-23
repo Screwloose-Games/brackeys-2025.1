@@ -17,6 +17,6 @@ shape = SubResource("CapsuleShape3D_6dig4")
 visible = false
 
 [node name="NpcPhantomCam" parent="." index="6"]
-transform = Transform3D(5.95903e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.99976, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
+transform = Transform3D(5.86165e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.983422, 0, 5.96047e-08, 2.70711, 2.70711, 5.96047e-08)
 
 [node name="skeletalmesh_ringbearer" parent="." index="7" instance=ExtResource("2_6dig4")]

@@ -41,7 +41,7 @@ var sfx_dictionary: Dictionary = {
     # Player
     "player_jumped": {
         "stream": [
-            preload("res://common/audio/sfx/player/jump/Jump1.wav"), 
+            preload("res://common/audio/sfx/player/jump/jump1.wav"), 
             preload("res://common/audio/sfx/player/jump/jump2.wav"), 
             preload("res://common/audio/sfx/player/jump/jump3.wav")
         ],

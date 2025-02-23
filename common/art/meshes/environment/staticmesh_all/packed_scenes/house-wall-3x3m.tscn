@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=4 uid="uid://dygknbblbewie"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrb0p"]
+resource_name = "14 BROWN-LIGHTEST"
+cull_mode = 2
+albedo_color = Color(0.862745, 0.74902, 0.603922, 1)
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {}
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5xdx"]
+resource_name = "23 GREY-WHITE"
+cull_mode = 2
+albedo_color = Color(0.858824, 0.858824, 0.854902, 1)
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_61kcv"]
+_surfaces = [{
+"aabb": AABB(0, -1.49012e-08, 0, 3, 3.005, 0.2),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAQAFAAQABgAAAAIAAwAAAAYABgACAAQABQAGAAQAAwAGAAcABQAHAAYA"),
+"name": "14 BROWN-LIGHTEST",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA/v8AAP//AAAAAAAAAAAAAP7/AAD/////AAAAAP//kf///wAAAAD//wAAAAAAAJH///8AAA==")
+}, {
+"aabb": AABB(0, -1.49012e-08, 0.2, 3, 3, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "23 GREY-WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAP//SQIAAP////9JAgAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yab4i"]
+resource_name = "staticmesh_environment_all_house-wall-3x3m"
+_surfaces = [{
+"aabb": AABB(0, -1.49012e-08, 0, 3, 3.005, 0.2),
+"attribute_data": PackedByteArray("dAAoH+3fQhDt3ygfdABCEKTwiv+K/xEgiv+K/6TwESDt31oPdAB0AO3fdAB0AFoPvO+K/9bgESC87xEg1uCK/3QAdACK/4r/7d90AHQAKB8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_vrb0p"),
+"name": "14 BROWN-LIGHTEST",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAAAA/7///wAA/v//v///AAAAAP+/AAAAAP7//7///wAA/v//v/////8AAADA//8AAAAA/7///5H///8AwP//kf////q+AAD//wAA+r7/////AAD6vgAAkf////q+AAAAAP7//78AAP//AAAAwAAAkf///wDAAAAAAAAA/78AAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAAAA/38AAP9/AAD/fwAA/3/cfxEAAX1+Af9/AADgfI8B////f////3////9/////f+5/3P+AfgH9b37f/P9///8f3d6iDd3wov///39ZxKW7")
+}, {
+"aabb": AABB(0, -1.49012e-08, 0.2, 3, 3, 1e-05),
+"attribute_data": PackedByteArray("7d+K/3QAESDt3xEgdACK/w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_v5xdx"),
+"name": "23 GREY-WHITE",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAIAAAP//SQIAgP////9JAgCAAAAAAAAAAID/f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_61kcv")
+
+[node name="house-wall-3x3m" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_yab4i")
+skeleton = NodePath("")
+metadata/extras = {
+"blenderkit": {}
+}
+metadata/blenderkit = "{  }"

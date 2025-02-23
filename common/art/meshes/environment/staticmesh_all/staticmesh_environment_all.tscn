@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd54l6b2iong6"]
+
+[ext_resource type="PackedScene" uid="uid://vwxv7f7225gu" path="res://common/art/meshes/environment/staticmesh_all/staticmesh_environment_all.gltf" id="1_72t7j"]
+
+[node name="staticmesh_environment_all" instance=ExtResource("1_72t7j")]
+metadata/run = false

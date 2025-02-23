@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b0b1erf8vipr1"]
+
+[node name="present-box_001" type="Node3D"]
+transform = Transform3D(0.463985, 0, 0, 0, 0.463985, 0, 0, 0, 0.463985, 0, 0, 0)
+
+[node name="present-box" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 410)
+metadata/extras = {
+"scatter5": {}
+}
+metadata/scatter5 = "{  }"

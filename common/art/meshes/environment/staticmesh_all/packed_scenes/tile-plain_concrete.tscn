@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=4 uid="uid://bb3u5j108krfw"]
+
+[ext_resource type="Texture2D" uid="uid://drleenuj1x1v" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-new2.png" id="1_w46xq"]
+[ext_resource type="Texture2D" uid="uid://cweo4rkrwe546" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-emission-night.png" id="2_445te"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_re45x"]
+resource_name = "LOWPOLY-COLORS"
+cull_mode = 2
+albedo_texture = ExtResource("1_w46xq")
+roughness = 0.257971
+emission_enabled = true
+emission_texture = ExtResource("2_445te")
+metadata/extras = {
+"blenderkit": {},
+"corona": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ddtij"]
+_surfaces = [{
+"aabb": AABB(-15, -5.99999, -15, 30, 6, 30),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgAEAAAAAAAFAAMAAAAEAAUAAwAFAAYAAwAGAAEAAQAHAAIAAQAGAAcAAgAHAAQABgAIAAcABAAHAAgABgAJAAgABQAJAAYABAAIAAoABQALAAkABAAKAAsABAALAAUA"),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/v///wAAAAAAAP7///8AAAAA//8AAAAA///+////AAD+/6mqAAAAAP//qar+/wAAAACpqv//AAAAAKmqAAAAAAAAAAAAAAAAAAAAAP//AAD+/wAAAAAAAP//AAD+/wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ej63t"]
+resource_name = "staticmesh_environment_all_tile-plain_concrete"
+_surfaces = [{
+"aabb": AABB(-15, -5.99999, -15, 30, 6, 30),
+"attribute_data": PackedByteArray("u5wsQ1aDkVxWgyxDu5yRXLuckVxWg0JeVoORXLucQl5WgyxDu5x7QbucLENWg3tBu5wsQ22ekVy7nJFcbZ4sQ2Qbniv/ATsoZBs7KP8BnitkG0Qv/wGnMv8BRC9kG6cyZBvAK/8BIy//AcArZBsjL/8BLDZkG8kyZBssNv8ByTJWg5FcpYEsQ1aDLEOlgZFc"),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA"),
+"material": SubResource("StandardMaterial3D_re45x"),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("/v///wAA/78AAP7/////vwAA//8AAP+////+/////7////7///8AgAAAqar//wCAAAD+////AID//6mq/v8AgAAA//8AAP///v+pqgAA///+////AAD//wAAqaoAAP///v///wAAVNX//6mq/v9U1f///v///1TV/v+pqgAAVNX+/6mqAAD//wAAAAAAAP///v8AAAAA//8AAKmqAAD/////qar+/wCAAAAAAP//AIAAAKmq//8AgP//AAD+/wCA/v+pqgAA/7///wAA/v//v///qar+//+//v8AAAAA/78AAKmq/////wAAAAAAAP//AACpqgAA//8AAAAA/////wAA/v///1TVAACpqgAAVNUAAP//AABU1QAAqar//1TV/v//f/7//3/+//9//v//f/9/////f////3////9////+//9//v//f/7//3/+//9/qapUVamqVFWpqlRVqapUVf///3////9/////f////3//f////3////9/////f////38AAP9/AAD/fwAA/38AAP8//3//P/9//z//f/8//39U1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ddtij")
+
+[node name="tile-plain_concrete" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_ej63t")
+skeleton = NodePath("")
+metadata/extras = {
+"ant_landscape": {},
+"scatter5": {}
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]

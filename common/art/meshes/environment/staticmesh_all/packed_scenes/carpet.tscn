@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=4 uid="uid://ctsugdhkp5n7s"]
+
+[ext_resource type="Texture2D" uid="uid://drleenuj1x1v" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-new2.png" id="1_p55hm"]
+[ext_resource type="Texture2D" uid="uid://cweo4rkrwe546" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-emission-night.png" id="2_bi5oe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_re45x"]
+resource_name = "LOWPOLY-COLORS"
+cull_mode = 2
+albedo_texture = ExtResource("1_p55hm")
+roughness = 0.257971
+emission_enabled = true
+emission_texture = ExtResource("2_bi5oe")
+metadata/extras = {
+"blenderkit": {},
+"corona": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5kasx"]
+_surfaces = [{
+"aabb": AABB(-1, -9.49949e-08, -1, 2, 0.0500002, 2),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAAAFAAMAAwAFAAQAAQAEAAYABQAGAAQAAQAGAAIAAAAHAAUABQAHAAYACAAHAAAACAAAAAIABwAJAAYACQACAAYACAAKAAcABwAKAAkACAACAAsACQALAAIADAAKAAgADAAIAAsACgANAAkACwAJAA0ADAAOAAoACgAOAA0ADAALAA8ADgAMAA8ACwANAA8ADgAPAA0A"),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("7eUAAAAAAAD/////AAAAAO3l//8AAAAA//8AAAAAAAD///////8AAP//AAD//wAA7eX/////AADt5QAA//8AAJ4ZAAAAAAAAnhn/////AACeGQAA//8AAJ4Z//8AAAAAAAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y873o"]
+resource_name = "staticmesh_environment_all_carpet"
+_surfaces = [{
+"aabb": AABB(-1, -9.49949e-08, -1, 2, 0.0500002, 2),
+"attribute_data": PackedByteArray("L1GieVxS7HkvUex5XFKieVdS0XgvUYd4V1KHeC9R0XhcUo55L1FEeVxSRHkvUY55ZzqoeS8xXnlnOl55LzGoeS9R5nhXUi95L1EveVdS5ngvMQB5ZzpKeS8xSnlnOgB5GzGYcY4lYGgbMWBojiWYcbxc5HsvUbx6vFy8ei9R5HsbUdRnjUWnZhtRp2aNRdRnG1GTZo1Fa2UbUWtljUWTZhtRTGmNRR5oG1EeaI1FS2kbUR5ojUXUZxtR1GeNRR5ojUUhZRtRa2WNRWtlG1EhZY4lrHEbMeR6jiXkehsxrHE="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUA"),
+"material": SubResource("StandardMaterial3D_re45x"),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("7eUAAAAA////////AAD//+3l//8AAP////8AAAAA//+eGQAA//8AgAAA/////wCAnhn/////AIAAAAAA//8AgP//AAD//wCA7eX/////AID///////8AgO3lAAD//wCA7eUAAP//AICeGf////8AgO3l/////wCAnhkAAP//AIAAAAAAAAD//54Z//8AAP//AAD//wAA//+eGQAAAAD//54ZAAAAAP//7eX//wAA//+eGf//AAD//+3lAAAAAP//nhkAAAAAVNXt5QAA//9U1e3lAAAAAFTVnhkAAP//VNUAAAAAAABU1Z4ZAAD//1TVnhkAAAAAVNUAAAAA//9U1f////8AAFTV7eX/////VNXt5f//AABU1f///////1TVnhn//wAAVNUAAP////9U1QAA//8AAFTVnhn/////VNXt5QAAAABU1f//AAD//1TV//8AAAAAVNXt5QAA//9U1f//AAAAAP+//////////7//////AAD/v///AAD///+/AAAAAP////8AAP//AAD//wAA////////AAAAAAAA//+eGf////9U1e3l//8AAFTV7eX/////VNWeGf//AABU1f///3////9/////f////3//f////3////9/////f////3////9/////f////3////9/////f////3////9///////9/////f////3////9/////f/7//3////9//v//f1RVVFVUVVRVVFVUVVRVVFVUVVRVVFVUVVRVVFVUVVRVVNWqKlTVqipU1aoqVNWqKlTVqipU1aoqVNWqKlTVqipUVVRVVFVVVVRVVFVUVVVV/38AAP9/AAD/fwAA/38AAP8//3//P/9//z//f/8//39U1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5kasx")
+
+[node name="carpet" type="MeshInstance3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("ArrayMesh_y873o")
+skeleton = NodePath("")
+metadata/extras = {
+"scatter5": {}
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]

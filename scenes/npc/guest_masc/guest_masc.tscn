@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://brr21wqkb8whj"]
+[gd_scene load_steps=3 format=3 uid="uid://brr21wqkb8whj"]
 
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_q64vn"]
+[ext_resource type="PackedScene" uid="uid://dv0o3bx3bm0mg" path="res://common/art/meshes/skeletalmesh_genericman/skeletalmesh_genericman.tscn" id="2_kr0pv"]
 
 [node name="GuestMasc" instance=ExtResource("1_q64vn")]
+
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
+[node name="NpcPhantomCam" parent="." index="6"]
+transform = Transform3D(5.95878e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.999718, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
+
+[node name="skeletalmesh_genericman" parent="." index="7" instance=ExtResource("2_kr0pv")]

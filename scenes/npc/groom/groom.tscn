@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://drjhb46an8gy1"]
+[gd_scene load_steps=3 format=3 uid="uid://drjhb46an8gy1"]
 
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_bmull"]
+[ext_resource type="PackedScene" uid="uid://bc4dt8wbbx46r" path="res://common/art/meshes/skeletalmesh_groom/skeletalmesh_groom.tscn" id="2_n3igt"]
 
 [node name="Groom" instance=ExtResource("1_bmull")]
+
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
+[node name="NpcPhantomCam" parent="." index="6"]
+transform = Transform3D(5.95977e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.999883, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
+
+[node name="skeletalmesh_groom" parent="." index="7" instance=ExtResource("2_n3igt")]

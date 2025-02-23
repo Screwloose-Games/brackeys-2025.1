@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=4 uid="uid://c715rvi3rcakm"]
+
+[ext_resource type="Texture2D" uid="uid://drleenuj1x1v" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-new2.png" id="1_qgx00"]
+[ext_resource type="Texture2D" uid="uid://cweo4rkrwe546" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-emission-night.png" id="2_b0dct"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_re45x"]
+resource_name = "LOWPOLY-COLORS"
+cull_mode = 2
+albedo_texture = ExtResource("1_qgx00")
+roughness = 0.257971
+emission_enabled = true
+emission_texture = ExtResource("2_b0dct")
+metadata/extras = {
+"blenderkit": {},
+"corona": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cqum7"]
+_surfaces = [{
+"aabb": AABB(0, 0, -0.0909769, 2, 3.005, 0.199997),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIAAwAFAAQAAwAGAAUAAQAGAAMAAQAHAAYACAAEAAUAAgAEAAgACAAFAAkAAgAIAAoAAAACAAoACwAIAAkACwAKAAgACwAJAAwACwAMAA0ACwANAA4ADgANAAcACwAOAAoADgAHAAEADwAKAA4AAAAKAA8AEAAOAAEAAAAQAAEAEAARAA4ADwAOABEAEAASABEADwARABIAEAATABIAAAATABAADwASABQAAAAVABMADwAUABUADwAVAAAA"),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("ZkZru/7/AACZOQAA/v8AAJk578P+/wAAAAAAAP7/AAAAAJH///8AAAAA//8AAAAAAAAAAAAAAACZOQAAAAAAAP//kf///wAA/////wAAAABlxu/D/v8AAP//AAD+/wAA//8AAAAAAABlxgAAAAAAAGXGAAD+/wAAmLlru/7/AABmRoQI/v8AAJi5hAj+/wAAmLmECAAAAABmRoQIAAAAAJi5a7sAAAAAZkZruwAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d0x00"]
+resource_name = "staticmesh_environment_all_house-wall-door-2x3m"
+_surfaces = [{
+"aabb": AABB(0, 0, -0.0909769, 2, 3.005, 0.199997),
+"attribute_data": PackedByteArray("6zCl6scoJetwMFHq+i+k5TQo/evrMP/keSYd5Qkkz+N4y+hYNsOiXJzF6Fg2w6dMnMWnTN7NolzezadMeMunTOsw/+QtMqXq6zCl6i0y/+TrMKXqVSjS7DQo/esMMXrrNCj96zgivOQJJM/jYibq7Osw/+QmJJXiCDHF4wkkz+PforcrzqG5O86htyvforI736KyO4atwzzfosM8hq2yO4attyuXrrk7hq2yO5eutysRL8X1IjCh+xEvofsiMMX1p65dOrivwzynrsM8uK9dOqeuGzK4r4E0p66BNLivGzI="),
+"format": 34896613399,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAAADAAUABAAGAAEABQADAAYABAAHAAYABQAGAAcACAAJAAoACwAKAAkACwAMAAoACAANAAkADgANAAgADgAIAA8AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUA"),
+"material": SubResource("StandardMaterial3D_re45x"),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("ZkZru/7/d5SZOQAA/v8k5pk578P+/w+TZcbvw/7/GeVmRoQI/v9W5Ji5a7v+/xbqZcYAAP7/32CYuYQI/v/nmJk578P+//////+R//////9lxu/D/v//////AAD+////ZcYAAP7///8AAJH//////wAAAAD+////mTkAAP7///+YuWu7/v9U1WZGa7sAAFTVZkZru/7/VNWYuWu7AABU1WZGa7v+/9PRZkaECAAA09FmRoQI/v/T0WZGa7sAANPRZkaECP7/JuGYuYQIAAAm4Zi5hAj+/ybhZkaECAAAJuGYuWu7/v+G15i5hAgAAIbXmLlruwAAhteYuYQI/v+G1///AAD+/////////wAA/////wAAAAD/////kf////////+R//////8AAP//AAD///////8AAP//AACR//////8AAAAA/v///wAA//8AAP//AACR//////8AAAAAAAD//2XGAAD+/1TVmTkAAAAAVNWZOQAA/v9U1WXGAAAAAFTVmTkAAP7/VNUAAAAAAABU1QAAAAD+/1TVmTkAAAAAVNX//wAA/v9U1WXGAAAAAFTVZcYAAP7/VNX//wAAAABU1f///////////////////////////////////////////3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//39UVVRVVFVUVVRVVFVUVVRVJC9tKCQvbSgkL20oJC9tKAae+7AGnvuwBp77sAae+7Do1wrU6NcK1OjXCtTo1wrU/7//f/+//3//v/9//7//f/9/Mr//fzK//38yv/9/Mr//P/9//z//f/8//3//P/9/VFVUVVRVVFVUVVRVVFVUVVRVVFVUVVRVVFVUVVRVVFVUVVRVVFVUVVRVVFVUVVRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cqum7")
+
+[node name="house-wall-door-2x3m" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_d0x00")
+skeleton = NodePath("")
+metadata/extras = {
+"blenderkit": {},
+"scatter5": {}
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]

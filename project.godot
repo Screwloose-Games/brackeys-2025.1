@@ -36,7 +36,7 @@ project/assembly_name="brackeys-2025.1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 

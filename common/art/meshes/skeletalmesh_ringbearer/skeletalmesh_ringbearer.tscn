@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://yihcjxf4f3h3"]
+
+[ext_resource type="PackedScene" uid="uid://b386semiqrgdm" path="res://common/art/meshes/skeletalmesh_ringbearer/skeletalmesh_ringbearer.blend" id="1_sbs7b"]
+
+[node name="skeletalmesh_ringbearer" instance=ExtResource("1_sbs7b")]

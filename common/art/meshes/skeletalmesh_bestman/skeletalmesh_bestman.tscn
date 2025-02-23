@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ric45qr876tr"]
+
+[ext_resource type="PackedScene" uid="uid://cy6mgvmylhh5n" path="res://common/art/meshes/skeletalmesh_bestman/skeletalmesh_bestman.blend" id="1_46ie6"]
+
+[node name="skeletalmesh_bestman" instance=ExtResource("1_46ie6")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mr8m6fdmymbq" path="res://code/npc.gd" id="1_abqhh"]
 [ext_resource type="Script" uid="uid://c3uuro61u7yty" path="res://code/interaction_detection.gd" id="1_nh2m4"]
-[ext_resource type="Script" uid="uid://bjid5lcvtfkd0" path="res://code/npc_audio_player.gd" id="3_4wlns"]
+[ext_resource type="Script" uid="uid://byb2ig4f6s571" path="res://code/npc_audio_player.gd" id="3_4wlns"]
 [ext_resource type="Script" uid="uid://crt48wecltrda" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_7n8xq"]
 [ext_resource type="AudioStream" uid="uid://chks17ncui7dx" path="res://common/audio/sfx/npc/npc_footsteps.tres" id="3_tl2vt"]
 [ext_resource type="Script" uid="uid://bbixea7raf8yd" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_4wlns"]
@@ -26,16 +26,20 @@ movement_speed = 1.0
 stopped_follow_wait_time = 3.0
 
 [node name="InteractionDetection" type="Node3D" parent="." node_paths=PackedStringArray("root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_nh2m4")
 root = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_58akw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_e51mn")
 
 [node name="InteractionTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTrigger"]
 shape = SubResource("BoxShape3D_snpff")
@@ -46,6 +50,7 @@ target_desired_distance = 2.0
 avoidance_enabled = true
 
 [node name="NpcAudioPlayer" type="AudioStreamPlayer3D" parent="." node_paths=PackedStringArray("npc_root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 stream = ExtResource("3_tl2vt")
 max_distance = 10.0
 bus = &"Environment"
@@ -54,15 +59,15 @@ npc_root = NodePath("..")
 
 [node name="NpcPhantomCam" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
 unique_name_in_owner = true
-transform = Transform3D(5.96026e-08, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -1.49012e-08, 5.96046e-08, 2.89443, 1.44721, 5.96046e-08)
+transform = Transform3D(5.96026e-08, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -1.49012e-08, 5.96046e-08, 2.89443, 2.44721, 5.96046e-08)
 script = ExtResource("3_7n8xq")
 follow_mode = 6
 follow_target = NodePath("..")
 look_at_mode = 2
 look_at_target = NodePath("..")
 tween_resource = SubResource("Resource_tl2vt")
-follow_offset = Vector3(2, 1, 0)
-metadata/_custom_type_script = ExtResource("3_7n8xq")
+follow_offset = Vector3(2, 2, 0)
+metadata/_custom_type_script = "uid://crt48wecltrda"
 
 [connection signal="body_entered" from="InteractionTrigger" to="InteractionDetection" method="on_body_entered"]
 [connection signal="body_exited" from="InteractionTrigger" to="InteractionDetection" method="on_body_left"]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc4dt8wbbx46r"]
+
+[ext_resource type="PackedScene" uid="uid://dk52lm28x1reb" path="res://common/art/meshes/skeletalmesh_groom/skeletalmesh_groom.blend" id="1_lifgx"]
+
+[node name="skeletalmesh_groom" instance=ExtResource("1_lifgx")]

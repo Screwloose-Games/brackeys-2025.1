@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://iv0eaysts6pp"]
+
+[ext_resource type="Texture2D" uid="uid://drleenuj1x1v" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-new2.png" id="1_82nbq"]
+[ext_resource type="Texture2D" uid="uid://cweo4rkrwe546" path="res://common/art/meshes/environment/staticmesh_all/color-atlas-emission-night.png" id="2_mbwbv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_re45x"]
+resource_name = "LOWPOLY-COLORS"
+cull_mode = 2
+albedo_texture = ExtResource("1_82nbq")
+roughness = 0.257971
+emission_enabled = true
+emission_texture = ExtResource("2_mbwbv")
+metadata/extras = {
+"blenderkit": {},
+"corona": {}
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uc4tj"]
+_surfaces = [{
+"aabb": AABB(-15, -1.49014e-06, -15, 30, 1e-05, 30),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 75, 76, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 75, 76, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_faps0"]
+resource_name = "staticmesh_environment_all_tile-plain_concrete-nb"
+_surfaces = [{
+"aabb": AABB(-15, -1.49014e-06, -15, 30, 1e-05, 30),
+"attribute_data": PackedByteArray(187, 156, 44, 67, 86, 131, 145, 92, 86, 131, 44, 67, 187, 156, 145, 92),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_re45x"),
+"name": "LOWPOLY-COLORS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 75, 76, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 75, 76, 0, 0, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 254, 255, 255, 127, 254, 255, 255, 127, 254, 255, 255, 127, 254, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uc4tj")
+
+[node name="tile-plain_concrete-nb" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_faps0")
+skeleton = NodePath("")
+metadata/extras = {
+"ant_landscape": {},
+"scatter5": {}
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]

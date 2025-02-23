@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnuav0ci4yqol"]
+[gd_scene load_steps=4 format=3 uid="uid://dnuav0ci4yqol"]
 
 [ext_resource type="PackedScene" uid="uid://d0p14r0fe04dd" path="res://scenes/npc.tscn" id="1_trvyb"]
-[ext_resource type="AudioStream" uid="uid://o4cplg0v8wv1" path="res://scenes/npc/ring_bearer/sounds/kid_laughing.wav" id="2_6dig4"]
+[ext_resource type="PackedScene" uid="uid://yihcjxf4f3h3" path="res://common/art/meshes/skeletalmesh_ringbearer/skeletalmesh_ringbearer.tscn" id="2_6dig4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6dig4"]
+radius = 0.212836
+height = 1.07663
 
 [node name="RingBearer" instance=ExtResource("1_trvyb")]
 
-[node name="AudioStreamPlayer3D" parent="." index="5"]
-stream = ExtResource("2_6dig4")
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.537183, 0)
+shape = SubResource("CapsuleShape3D_6dig4")
+
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
 
 [node name="NpcPhantomCam" parent="." index="6"]
-transform = Transform3D(5.96026e-08, -0.447214, 0.894427, 1.49006e-08, 0.894427, 0.447214, -0.999965, -1.49012e-08, 5.96046e-08, 2.89443, 1.44721, 5.96046e-08)
+transform = Transform3D(5.95903e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.99976, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
+
+[node name="skeletalmesh_ringbearer" parent="." index="7" instance=ExtResource("2_6dig4")]

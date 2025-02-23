@@ -31,8 +31,15 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path=""
-_subresources={}
+import_script/path="uid://b22weh4exp54y"
+_subresources={
+"nodes": {
+"PATH:house-wall-window-portal-3x3m": {
+"generate/physics": true,
+"physics/shape_type": 0
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

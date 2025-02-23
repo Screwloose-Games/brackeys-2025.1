@@ -1,5 +1,19 @@
 extends CharacterBody3D
 
+enum AnimationState {
+    HIDE,
+    IDLE,
+    LEAN_WALL,
+    RUN_FORWARD,
+    SIT,
+    STAND_CHATTING,
+    STAND_NERVOUS,
+    STAND_PHONE,
+    WALK_FORWARD
+}
+
+@export var animation_state: AnimationState = AnimationState.IDLE
+
 ## Should only ever be one NPC with this checked.
 @export var is_bride: bool
 @export var is_masc: bool
@@ -34,6 +48,8 @@ var waiting_after_following: bool
 var should_use_second_text: bool
 
 var index: int = 0
+
+
 
 func _ready():
     player = get_tree().get_first_node_in_group("player")

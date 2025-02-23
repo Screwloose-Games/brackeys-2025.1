@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://1rymkh2d8pam"]
+
+[ext_resource type="PackedScene" uid="uid://dgqfs3e6gbujc" path="res://scenes/player.tscn" id="1_pgx6m"]
+
+[sub_resource type="Environment" id="Environment_pgx6m"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="BlockoutGodot" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Bar" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49, 0.55, 0)
+use_collision = true
+size = Vector3(6, 1.1, 1)
+
+[node name="Bar2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.02786, 0.55, -1.17497)
+use_collision = true
+size = Vector3(3.3429, 1.1, 1)
+
+[node name="ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.378, -0.5, -57.049)
+use_collision = true
+size = Vector3(203.817, 1, 177.618)
+
+[node name="OutsideWalls" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46231, 10.1905, -17.014)
+flip_faces = true
+size = Vector3(62.1754, 21.3809, 55.6137)
+
+[node name="Player" parent="." instance=ExtResource("1_pgx6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.12929)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15453, 2.40379)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pgx6m")

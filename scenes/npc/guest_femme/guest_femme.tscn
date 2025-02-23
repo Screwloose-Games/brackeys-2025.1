@@ -9,6 +9,6 @@
 visible = false
 
 [node name="NpcPhantomCam" parent="." index="6"]
-transform = Transform3D(5.95978e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.999885, 0, 5.96046e-08, 2.70711, 2.70711, 5.96046e-08)
+transform = Transform3D(5.95973e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -0.999878, 0, 5.96047e-08, 2.70711, 2.70711, 5.96047e-08)
 
 [node name="skeletalmesh_genericwoman" parent="." index="7" instance=ExtResource("2_kouf1")]
